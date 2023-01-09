@@ -1,0 +1,97 @@
+<center>
+<h5><img src="https://imgs.search.brave.com/Bb4dHkUsK68PPr3YM89CWNn4iysRBfN4KPtqrTXaAck/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4t/TU9DUG1scU56RExL/enJwTHFkdTJRSGFI/YSZwaWQ9QXBp" width="30"
+     height="30">Times - Puerto Rico<img src="https://www.countryflags.com/wp-content/uploads/puerto-rico-flag-jpg-xl.jpg" width="30"
+     height="30"></h5>
+</center>
+
+<h3 id = "overall_score_count">Your overall score: {{ overall_score }}</h3>
+
+<head>
+    <title>Times - Puerto Rico</title>
+        <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+    </head>
+        <link type="text/css" rel="stylesheet" href="stylesheet.css" />
+        <meta name="viewport" content="width=device-width">
+        <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/argentina_places.css') }}">
+
+<left>
+    <a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_times') }}" id = "study_link">Times to study 📖</td></a>
+        <a href="{{ url_for('my_dictionary_times') }}" id = "study_link_2">Times learned 📖</td></a>
+</left>
+
+<div>
+<center>
+    <h4>{{ printed_answer_puerto_rico_time }}</h4>
+</center>
+    </div>
+
+<form class="" action="{{ url_for('puerto_rico_time_problems.time_problems_puerto_rico_submit') }}" method="POST">
+    <input id = "input" type="text" class="form-control" name="time_guess_page_puerto_rico_submit" id="time_guess_page_puerto_rico_submit" placeholder="Type here" maxlength="50"
+    required=""/>
+        <input id = "button" type="submit" value="Submit" class="form-control btn btn-primary">
+    </form>
+
+<div id="wrapper">
+    <div id="container">
+        <section class="open-book">
+            <article>
+                <h2 class="chapter-title">Put this time in Spanish &#8594</h2>
+                <p id ='random_word'>
+                    {{ random_time }}
+                </p>
+        </section>
+    </div>
+</div>
+
+</form>
+
+</form>
+
+<form class="" action="{{ url_for('puerto_rico_time_problems.time_problems_puerto_rico') }}" method="GET">
+        <input id = "button_two" type="submit" value="Guess times" class="form-control btn btn-primary">
+</form>
+
+ <form class="" action="{{ url_for('level_selector') }}" method="GET">
+        <input id = "level_selector" type="submit" value="Level selector" class="form-control btn btn-primary">
+ </form>
+
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<h4>Accent marks (copy and paste):</h4>
+
+<button onclick="copyToClipboard('#p1')">á</button>
+<button onclick="copyToClipboard('#p2')">é</button>
+    <button onclick="copyToClipboard('#p3')">í</button>
+<button onclick="copyToClipboard('#p4')">ó</button>
+    <button onclick="copyToClipboard('#p5')">ú</button>
+<button onclick="copyToClipboard('#p6')">ü</button>
+    <button onclick="copyToClipboard('#p7')">ñ</button>
+
+    <p id="p1">á</p>
+<p id="p2">é</p><br/>
+    <p id="p3">í</p>
+<p id="p4">ó</p><br/>
+    <p id="p5">ú</p>
+<p id="p6">ü</p><br/>
+    <p id="p7">ñ</p>
+
+</center>
+
+<script>
+    function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+</script>
+
+</html>
+
+
+</html>

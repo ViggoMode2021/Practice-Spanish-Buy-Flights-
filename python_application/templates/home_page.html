@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+You have logged in, {{ username }}!
+
+Your overall score is {{ score }}!
+
+<html>
+<head>
+    <title>Home</title>
+    </head>
+        <link type="text/css" rel="stylesheet" href="stylesheet.css" />
+        <meta name="viewport" content="width=device-width">
+        <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+
+    <h5>How are you?</h5>
+
+    <form class="" action="{{ url_for('word_guess') }}" method="POST">
+    <input type="text" class="form-control" name="word_guess" id="word_guess" placeholder="Type here" maxlength="30"/>
+
+
+        <h5>What do you like to do?</h5>
+
+    <input type="text" class="form-control" name="word_guess_5" id="word_guess_5" placeholder="Type here" maxlength="30"/>
+    <input type="submit" value="Submit" class="form-control btn btn-primary">
+
+               </form>
+
+    <h1>Answer #1 = {{ printed_answer }}</h1>
+    <h1>Answer #2 = {{ printed_answer_2 }}</h1>
+    <h1>Answer #3 = {{ printed_answer_3 }}</h1>
+    <h1>Answer #4 = {{ printed_answer_4 }}</h1>
+    <h1>Answer #5 = {{ printed_answer_5 }}</h1>
+
+</head>
+
+</body>
+</html>
+

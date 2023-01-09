@@ -1,0 +1,105 @@
+<head>
+
+<title>Ecuador - present tense verb conjugation</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+
+</head>
+
+	        <meta name="viewport" content="width=device-width">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/argentina_places.css') }}">
+
+<h5><img src="https://imgs.search.brave.com/o0yn9x8fIQx9i83RTF5qEadX1SegKOwnGWmzFsuUhvY/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5C/QlNIM2xhalhyZER5/Xzc3SjlZc2pnSGFI/YSZwaWQ9QXBp" width="30"
+     height="30">Ecuador - present tense verb conjugation<img src="https://imgs.search.brave.com/grjiIVxTyutmxNVefo8jPvatw7-QTEwKkSqhaYwTTLw/rs:fit:632:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5i/RVJHVGxIRnMxbldB/eXl3NkI5LUhRSGFG/aiZwaWQ9QXBp" width="30"
+     height="30"></h5>
+
+<h3 id = "overall_score_count">Your overall score: {{ overall_score }}</h3>
+
+<center>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul id = "flash" class=flashes>
+    {% for message in messages %}
+        <li>{{ message | safe }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</center>
+
+<center>
+    <h3>{{ printed_answer_conjugated_verb }} {{ It_means  }} {{ single_quote }}{{ answer_translation }}{{ single_quote }}
+</h3>
+</center>
+
+<div class="bg-img"></div>
+
+<form class="" action="{{ url_for('verb_conjugation_practice.verb_conjugation_practice_present_tense_submit') }}" method="POST">
+    <input id = "input" type="text" class="form-control" name="verb_conjugation_practice_present_tense_submit" id="verb_conjugation_practice_present_tense_submit" placeholder="Type here" maxlength="50"
+    required=""/>
+        <input id = "button" type="submit" value="Submit" class="form-control btn btn-primary">
+    </form>
+
+<form class="" action="{{ url_for('verb_conjugation_practice.verb_conjugation_practice_present_tense') }}" method="GET">
+        <input id = "button_two" type="submit" value="Guess again" class="form-control btn btn-primary">
+</form>
+
+<div id="wrapper">
+    <div id="container">
+        <section class="open-book">
+            <article>
+                <h2 class="chapter-title">Conjugate verb &#8594</h2>
+                <p id ='random_word'>
+                    {{ infinitive_verb_with_subject_pronoun }}
+                </p>
+        </section>
+    </div>
+</div>
+
+</form>
+
+</form>
+
+<br>
+
+<button onclick="copyToClipboard('#p1')">á</button>
+<button onclick="copyToClipboard('#p2')">é</button>
+    <button onclick="copyToClipboard('#p3')">í</button>
+<button onclick="copyToClipboard('#p4')">ó</button>
+    <button onclick="copyToClipboard('#p5')">ú</button>
+<button onclick="copyToClipboard('#p6')">ü</button>
+    <button onclick="copyToClipboard('#p7')">ñ</button>
+
+<br>
+<br>
+<br>
+
+ <form class="" action="{{ url_for('level_selector') }}" method="GET">
+        <input id = "level_selector" type="submit" value="Level selector" class="form-control btn btn-primary">
+ </form>
+
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <p id="p1">á</p>
+<p id="p2">é</p><br/>
+    <p id="p3">í</p>
+<p id="p4">ó</p><br/>
+    <p id="p5">ú</p>
+<p id="p6">ü</p><br/>
+    <p id="p7">ñ</p>
+
+</center>
+
+<script>
+    function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+</script>
+
+</html>

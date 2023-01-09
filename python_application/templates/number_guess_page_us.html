@@ -1,0 +1,62 @@
+<h2><img src="https://imgs.search.brave.com/kyDrE7PSGM8w4jHNTYsPBGqm6c9F1VzVGidPESol6EY/rs:fit:444:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC56/X0FCVU0ydXFCUzhi/NFpIb0k2WWJRSGFI/NiZwaWQ9QXBp" width="30"
+     height="30">Number guess page - U.S.<img src="https://imgs.search.brave.com/3VCZHwp4GeZbGVQnNmZhJOJ-6t_OZDGB7x_NxpArOPY/rs:fit:841:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5V/ZWxHTld1YTBMbTZw/N0NLNC1YN0pBSGFF/TCZwaWQ9QXBp" width="30"
+     height="30"></h2>
+
+<h1>Your overall score: {{ overall_score }}</h1>
+
+    <h1>{{ printed_answer_number }}</h1>
+
+<head>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+    <title>Number range: {{ first_number_range}} - {{ second_number_range }}</title>
+    </head>
+        <link type="text/css" rel="stylesheet" href="stylesheet.css" />
+        <meta name="viewport" content="width=device-width">
+        <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/number_guess_page.css') }}">
+
+<form class="" action="{{ url_for('estados_unidos_numbers.number_guess_submit_us') }}" method="POST">
+    <input id = "input" type="text" class="form-control" name="number_guess_submit" id="number_guess_submit" placeholder="Type here" maxlength="70"
+    required=""/>
+
+        <input id = "submit_button" type="submit" value="Submit" class="form-control btn btn-primary">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap" rel="stylesheet">
+
+
+<div class="circles">
+  <div class="circle circle-1"></div>
+  <div class="circle circle-2"></div>
+</div>
+
+<div class="card-group">
+  <div class="card">
+    <div class="logo"><img src="https://raw.githubusercontent.com/lipis/flag-icons/d78b4abcc98fcc7d095822f0a2bc59aa73312f47/flags/1x1/us.svg" alt="Visa"></div>
+    <div class="chip"><img src="https://raw.githubusercontent.com/dasShounak/freeUseImages/main/chip.png" alt="chip"></div>
+    <div class="number">Write this number alphabetically in Spanish {{ num_1 }}</div>
+    <div class="to">{{date_object}}</div>
+    <div class="ring"></div>
+  </div>
+</div>
+
+</form>
+
+ <form class="" action="{{ url_for('estados_unidos_numbers.number_guess_page_us') }}" method="GET">
+        <input id = "guess_button" type="submit" value="Guess again" class="form-control btn btn-primary">
+ </form>
+
+ <form class="" action="{{ url_for('level_selector') }}" method="GET">
+        <input id = "level_selector" type="submit" value="Level Selector" class="form-control btn btn-primary">
+ </form>
+
+<br>
+<br>
+<br>
+
+ <form class="" action="{{ url_for('estados_unidos_numbers.number_guess_page_range') }}" method="GET">
+        <input id = "number_range_button" type="submit" value="Input new number range" class="form-control btn btn-primary">
+ </form>
+
+</html>

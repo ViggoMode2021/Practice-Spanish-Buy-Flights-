@@ -1,0 +1,37 @@
+<head>
+  <title>USD to EUR converter</title>
+	<link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+</head>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/usd_to_cop.css') }}">
+
+<div class="convertor-card">
+        <div class="base">
+            <span class="name">US Dollar</span>
+            <div class="value-section">
+                <span class="value">{{ currency_name_rate }}</span>
+                <span class="symbol">$</span>
+            </div>
+            <span class="abbr">USD</span>
+        </div>
+        <div class="converted">
+            <span class="name">Euro</span>
+            <div class="value-section">
+                <span class="value">{{ currency_name_rate_2 }}</span>
+                <span class="symbol">$</span>
+            </div>
+            <span class="abbr">EUR</span>
+        </div>
+    </div>
+
+<h5>Input your own USD amount to check a custom conversion rate</h5>
+
+<br>
+
+<form class="" action="{{ url_for('flights.spain_currency_converter_request') }}" method="POST">
+    <input id = "input" type="text" class="form-control" name="input_amount" id="input_amount" placeholder="Type here" maxlength="50"
+    required=""/>
+        <input id = "button" type="submit" value="Submit" class="form-control btn btn-primary">
+    </form>

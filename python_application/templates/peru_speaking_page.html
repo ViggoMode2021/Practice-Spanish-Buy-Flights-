@@ -1,0 +1,126 @@
+<body>
+
+<center>
+<h5><img src="https://imgs.search.brave.com/qgF_UzlLHZJ7qyWavlIrJFTABBZJwDWfgKDzL2Pj0ZI/rs:fit:487:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5z/UW9NQ1dPUzFJUW5E/LWVFNG82dlB3SGFI/TiZwaWQ9QXBp" width="30"
+     height="30">Speaking Page - Perú<img src="https://imgs.search.brave.com/u8GNSnJ8L70Mi8JJKIer0G1yMRmHvOVPgcAwD7uh4-8/rs:fit:1200:952:1/g:ce/aHR0cHM6Ly8zLmJw/LmJsb2dzcG90LmNv/bS8tUWloVi1iaWF4/UGcvVjFfYUZOblow/SUkvQUFBQUFBQUNP/ZTQvbE4zcFNwNGhi/NVllMUo4ZTBYdEdl/eWFmTm5ObEdjbk5n/Q0xjQi9zMTYwMC8z/LmpwZw" width="30"
+     height="30"></h5>
+</center>
+
+<head>
+    <title>Peru - Speaking practice</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+</head>
+
+<center>
+    <h3>Your overall score:</h3>
+    <h4>{{ overall_score }}</h4>
+</center>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/peru_speaking_page.css') }}">
+
+<form action="{{ url_for('peru_speaking.upload') }}" method="POST" enctype="multipart/form-data">
+
+        <div class="main-wrapper">
+        <div class="upload-main-wrapper">
+                <div class="upload-wrapper">
+                        <input type="file" name="file" id="file" required="">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="224.3881704980842 176.8527621722847 221.13266283524905 178.8472378277154" width="221.13" height="178.85"><defs><path d="M357.38 176.85C386.18 176.85 409.53 204.24 409.53 238.02C409.53 239.29 409.5 240.56 409.42 241.81C430.23 246.95 445.52 264.16 445.52 284.59C445.52 284.59 445.52 284.59 445.52 284.59C445.52 309.08 423.56 328.94 396.47 328.94C384.17 328.94 285.74 328.94 273.44 328.94C246.35 328.94 224.39 309.08 224.39 284.59C224.39 284.59 224.39 284.59 224.39 284.59C224.39 263.24 241.08 245.41 263.31 241.2C265.3 218.05 281.96 199.98 302.22 199.98C306.67 199.98 310.94 200.85 314.93 202.46C324.4 186.96 339.88 176.85 357.38 176.85Z" id="b1aO7LLtdW"></path><path d="M306.46 297.6L339.79 297.6L373.13 297.6L339.79 255.94L306.46 297.6Z" id="c4SXvvMdYD"></path><path d="M350.79 293.05L328.79 293.05L328.79 355.7L350.79 355.7L350.79 293.05Z" id="b11si2zUk"></path></defs><g><g><g><use xlink:href="#b1aO7LLtdW" opacity="1" fill="#ffffff" fill-opacity="1"></use></g><g><g><use xlink:href="#c4SXvvMdYD" opacity="1" fill="#363535" fill-opacity="1"></use></g><g><use xlink:href="#b11si2zUk" opacity="1" fill="#363535" fill-opacity="1"></use></g></g></g></g></svg>
+                        <span class="file-upload-text">Select file (mp3)</span>
+                        <div class="file-success-text">
+                         <svg version="1.1" id="check" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 100 100"  xml:space="preserve">
+                <circle style="fill:rgba(0,0,0,0);stroke:#ffffff;stroke-width:10;stroke-miterlimit:10;" cx="49.799" cy="49.746" r="44.757"/>
+                <polyline style="fill:rgba(0,0,0,0);stroke:#ffffff;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="
+                    27.114,51 41.402,65.288 72.485,34.205 "/>
+                </svg> <span>Successfully</span></div>
+                    </div>
+		        <script>
+				 $(document).ready(function(){
+             $('#upload-file').change(function() {
+                var filename = $(this).val();
+                $('#file-upload-name').html(filename);
+                if(filename!=""){
+                    setTimeout(function(){
+                        $('.upload-wrapper').addClass("uploaded");
+                    }, 600);
+                    setTimeout(function(){
+                        $('.upload-wrapper').removeClass("uploaded");
+                        $('.upload-wrapper').addClass("success");
+                    }, 1600);
+                }
+            });
+        });
+			</script>
+        </div>
+    </div>
+<br>
+<center>
+<button class="custom-btn btn-3" name="upload" id="upload"><span>Upload file (mp3)</span></button>
+</center>
+
+</form>
+
+<center>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul id = "flash" class=flashes>
+    {% for message in messages %}
+        <li>{{ message | safe }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</center>
+
+<hr class="style5">
+
+<center>
+<h1>Upload a voice recording of you saying:</h1><h2>"{{ random_sentence }}"</h2><h1> in Spanish.</h1>
+</center>
+
+<hr class="style5">
+
+<center>
+<h1>The answer will appear here: {{ translated_sentence_copy }}</h1>
+
+    </center>
+<hr class="style5">
+
+<center>
+<h1>Your result will appear here: {{ user_result }}</h1>
+        </center>
+<hr class="style5">
+
+<br>
+<br>
+<br>
+
+<center>
+
+<form class="" action="{{ url_for('peru_speaking.peru_speaking_page') }}" method="GET">
+        <input id = "button_two" type="submit" value="Speak (places)" class="btn green">
+ </form>
+
+    <form class="" action="{{ url_for('peru_speaking.peru_speaking_page_numbers_1_to_100') }}" method="GET">
+        <input id = "button_two" type="submit" value="Speak (0-100)" class="btn green">
+ </form>
+
+    <form class="" action="{{ url_for('peru_speaking.peru_speaking_page_colors') }}" method="GET">
+        <input id = "button_two" type="submit" value="Speak (colors)" class="btn green">
+ </form>
+
+    <form class="" action="{{ url_for('peru_speaking.peru_speaking_page_greetings_and_farewells') }}" method="GET">
+        <input id = "button_two" type="submit" value="Speak (greetings + farewells)" class="btn green">
+ </form>
+
+    <form class="" action="{{ url_for('peru_speaking.peru_speaking_page_dates') }}" method="GET">
+        <input id = "button_two" type="submit" value="Speak (dates)" class="btn green">
+ </form>
+
+ <form class="" action="{{ url_for('level_selector') }}" method="GET">
+        <input id = "level_selector" type="submit" value="Level selector" class="btn blue">
+ </form>
+
+</center>
+
+</body>

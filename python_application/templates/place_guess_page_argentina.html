@@ -1,0 +1,96 @@
+<h5><img src="https://imgs.search.brave.com/l3PRMuJ2QLA--cn-7p74AcfAqfKUjEPFOZ5MNqYapqE/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5M/V1J0LW54QjMyZHpf/b1ZjMWVLVkRRSGFI/YSZwaWQ9QXBp" width="30"
+     height="30">Places - Argentina<img src="https://imgs.search.brave.com/pdgu_Ij0FSAYLsK6ayoy-RhZGnQJcO2162d5k8-VE64/rs:fit:374:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC44/OGhrSTAwSE5TY09X/Z0xsd1lOY3hBQUFB/QSZwaWQ9QXBp" width="30"
+     height="30"></h5>
+
+<h2 id ="dictionary_verbs_count">{{ my_dictionary_places_count }} places learned out of 41</h2>
+
+<h3 id ="overall_score_count">Your overall score: {{ overall_score }}</h3>
+
+    <a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_places') }}" id = "study_link">Places to study 📖</a>
+        <a href="{{ url_for('my_dictionary_places') }}" id = "study_link_2">Places learned 📖</a>
+
+<div>
+<center>
+    <h4>{{ printed_answer_argentina_place }}</h4>
+</center>
+    </div>
+
+<head>
+    <title>Places - Argentina</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+    </head>
+        <link type="text/css" rel="stylesheet" href="stylesheet.css" />
+        <meta name="viewport" content="width=device-width">
+        <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/argentina_places.css') }}">
+
+<form class="" action="{{ url_for('argentina_places.place_guess_page_argentina_submit') }}" method="POST">
+    <input id = "input" type="text" class="form-control" name="place_guess_page_argentina_submit" id="place_guess_page_argentina_submit" placeholder="Type here" maxlength="30"
+    required=""/>
+        <input id = "button" type="submit" value="Submit" class="form-control btn btn-primary">
+    </form>
+
+<div id="wrapper">
+    <div id="container">
+        <section class="open-book">
+            <article>
+                <h2 class="chapter-title">Translate:</h2>
+                <p id ='random_word'>
+                    {{ random_place }}
+                    {{ random_place_with_ir }}
+                </p>
+        </section>
+    </div>
+</div>
+
+</form>
+
+</form>
+
+<form class="" action="{{ url_for('argentina_places.place_guess_page_argentina') }}" method="GET">
+        <input id = "button_two" type="submit" value="Guess places" class="form-control btn btn-primary">
+</form>
+
+<form class="" action="{{ url_for('argentina_places.place_guess_page_argentina_with_ir') }}" method="GET">
+        <input id = "button_two" type="submit" value="Guess places with ir" class="form-control btn btn-primary">
+</form>
+
+ <form class="" action="{{ url_for('level_selector') }}" method="GET">
+        <input id = "level_selector" type="submit" value="Level selector" class="form-control btn btn-primary">
+ </form>
+
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<h4>Accent marks (copy and paste):</h4>
+
+<button onclick="copyToClipboard('#p1')">á</button>
+<button onclick="copyToClipboard('#p2')">é</button>
+    <button onclick="copyToClipboard('#p3')">í</button>
+<button onclick="copyToClipboard('#p4')">ó</button>
+    <button onclick="copyToClipboard('#p5')">ú</button>
+<button onclick="copyToClipboard('#p6')">ü</button>
+    <button onclick="copyToClipboard('#p7')">ñ</button>
+
+    <p id="p1">á</p>
+<p id="p2">é</p><br/>
+    <p id="p3">í</p>
+<p id="p4">ó</p><br/>
+    <p id="p5">ú</p>
+<p id="p6">ü</p><br/>
+    <p id="p7">ñ</p>
+
+</center>
+
+<script>
+    function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+</script>
+
+</html>

@@ -1,0 +1,64 @@
+<head>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+    <Title>My Flights</Title>
+</head>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/my_flights.css') }}">
+
+<table>
+  <caption>My Flights</caption>
+    {% for row in my_flights %}
+  <thead>
+    <tr>
+      <th scope="col">Flight ID</th>
+      <th scope="col">Flight</th>
+      <th scope="col">Cost</th>
+      <th scope="col">Departure Date</th>
+      <th scope="col">Departure Time</th>
+        <th scope="col">Return Date</th>
+      <th scope="col">Return Time</th>
+      <th scope="col">Confirmed</th>
+      <th scope="col">Purchase Date</th>
+        <th scope="col">Purchase Time</th>
+      <th scope="col">View/Cancel Flight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Account">{{row[0]}}</td>
+      <td data-label="Account">{{row[1]}}</td>
+      <td data-label="Due Date">${{row[2]}}.00</td>
+      <td data-label="Amount">{{row[3]}}</td>
+      <td data-label="Period">{{row[4]}}</td>
+        <td data-label="Period">{{row[5]}}</td>
+        <td data-label="Period">{{row[6]}}</td>
+        <td data-label="Period">{{row[7]}}</td>
+        <td data-label="Period">{{row[8]}}</td>
+        <td data-label="Period">{{row[9]}}</td>
+      <td width="130">
+                    <div class="form-group">
+                <form action="edit_flight/{{row[0]}}" method="GET">
+                         <button id = "view_cancel_flight" type="submit" class="btn btn-warning">View/cancel flight</button>
+                    </form>
+        {% endfor %}
+    </tr>
+  </tbody>
+</table>
+
+<a href="{{ url_for('flights.book_a_flight') }}" class="btn green">Book another flight</a>
+
+ <form class="" action="{{ url_for('level_selector') }}" method="GET">
+        <input id = "level_selector" type="submit" value="Level selector" class="form-control btn btn-primary">
+ </form>
+
+<center>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul id = "flash" class=flashes>
+    {% for message in messages %}
+        <li>{{ message | safe }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</center>

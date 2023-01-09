@@ -1,0 +1,119 @@
+<head>
+  <title>My study list</title>
+	<link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+</head>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/my_flights.css') }}">
+
+<table>
+  <caption>My study list:</caption>
+    <caption>{{ total_practice_records }} records total</caption>
+  <thead>
+    <tr>
+      <th scope="col">Verbs Correct<img src="https://cdn-icons-png.flaticon.com/128/4134/4134850.png" width="30"
+     height="30"></th>
+      <th scope="col">Verbs Incorrect<img src="https://cdn-icons-png.flaticon.com/128/4134/4134850.png" width="30"
+     height="30"></th>
+      <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_adjectives') }}">Adjectives Correct<img src="https://cdn-icons-png.flaticon.com/512/2400/2400603.png" width="30"
+     height="30"></th>
+      <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_adjectives') }}">Adjectives Incorrect<img src="https://cdn-icons-png.flaticon.com/512/2400/2400603.png" width="30"
+     height="30"></th>
+      <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_times') }}">Times Correct<img src="https://cdn-icons-png.flaticon.com/512/2784/2784459.png" width="30"
+     height="30"></th>
+        <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_times') }}">Times Incorrect<img src="https://cdn-icons-png.flaticon.com/512/2784/2784459.png" width="30"
+     height="30"></th>
+      <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_numbers') }}">Numbers Correct<img src="https://cdn-icons-png.flaticon.com/512/709/709337.png" width="30"
+     height="30"></th>
+      <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_numbers') }}">Numbers Incorrect<img src="https://cdn-icons-png.flaticon.com/512/709/709337.png" width="30"
+     height="30"></th>
+      <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_places') }}">Places Correct<img src="https://cdn-icons-png.flaticon.com/512/2794/2794732.png" width="30"
+     height="30"></th>
+        <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_places') }}">Places Incorrect<img src="https://cdn-icons-png.flaticon.com/512/2794/2794732.png" width="30"
+     height="30"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Account">{{ verbs_correct }}</td>
+      <td data-label="Account">{{ verbs_incorrect }}</td>
+      <td data-label="Due Date">{{ adjectives_correct }}</td>
+      <td data-label="Period">{{ adjectives_incorrect }}</td>
+        <td data-label="Period">{{ times_correct }}</td>
+        <td data-label="Period">{{ times_incorrect }}</td>
+        <td data-label="Period">{{ numbers_correct }}</td>
+        <td data-label="Period">{{ numbers_incorrect }}</td>
+        <td data-label="Period">{{ places_correct }}</td>
+        <td data-label="Period">{{ places_incorrect }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<br>
+
+<table>
+  <thead>
+    <tr>
+        <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_foods_and_drinks') }}">Food and drinks Correct<img src="https://cdn-icons-png.flaticon.com/512/8430/8430894.png" width="30"
+     height="30"></th>
+        <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_foods_and_drinks') }}">Food and drinks Incorrect<img src="https://cdn-icons-png.flaticon.com/512/8430/8430894.png" width="30"
+     height="30"></th>
+        <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_greetings_and_farewells') }}">Greetings and farewells Correct<img src="https://cdn-icons-png.flaticon.com/512/76/76769.png" width="30"
+     height="30"></th>
+        <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_greetings_and_farewells') }}">Greetings and farewells Incorrect<img src="https://cdn-icons-png.flaticon.com/512/76/76769.png" width="30"
+     height="30"></th>
+        <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_dates') }}">Dates Correct<img src="https://cdn-icons-png.flaticon.com/512/1207/1207430.png" width="30"
+     height="30"></th>
+        <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_dates') }}">Dates Incorrect<img src="https://cdn-icons-png.flaticon.com/512/1207/1207430.png" width="30"
+     height="30"></th>
+        <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_weather') }}">Weather Correct<img src="https://cdn-icons-png.flaticon.com/512/1163/1163657.png" width="30"
+     height="30"></th>
+        <th scope="col"><a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_weather') }}">Weather Incorrect<img src="https://cdn-icons-png.flaticon.com/512/1163/1163657.png" width="30"
+     height="30"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td data-label="Period">{{ foods_and_drinks_correct }}</td>
+        <td data-label="Period">{{ foods_and_drinks_incorrect }}</td>
+        <td data-label="Period">{{ greetings_and_farewells_correct }}</td>
+        <td data-label="Period">{{ greetings_and_farewells_incorrect }}</td>
+        <td data-label="Period">{{ dates_correct }}</td>
+        <td data-label="Period">{{ dates_incorrect }}</td>
+        <td data-label="Period">{{ weather_correct }}</td>
+        <td data-label="Period">{{ weather_incorrect }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<center>
+ <form class="" action="{{ url_for('level_selector') }}" method="GET">
+        <input id = "level_selector" type="submit" value="Level selector" class="btn green">
+ </form>
+</center>
+
+<center>
+ <form class="" action="{{ url_for('my_dictionary') }}" method="GET">
+        <input id = "level_selector" type="submit" value="My dictionary" class="btn green">
+ </form>
+</center>
+
+<center>
+<form action="{{ url_for('reset_study_list') }}" method="POST">
+<div class="btn-group">
+  <button id = "reset_study_list" class="btn black">Reset my study list</button>
+  </div>
+</form>
+</center>
+
+<center>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul id = "flash" class=flashes>
+    {% for message in messages %}
+        <li>{{ message | safe }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</center>

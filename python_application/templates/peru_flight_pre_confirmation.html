@@ -1,0 +1,31 @@
+<title>Confirm flight - Perú</title>
+
+<style>
+    body {
+	  background-image:url("https://imgs.search.brave.com/17TvXXkBLDR-Gefc_YWy3vapLrdhpyDe18f0VmIAFmw/rs:fit:713:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5G/YnBlUVNpN0FybHAw/dFY0LUoydl9RSGFF/NyZwaWQ9QXBp")
+}
+
+.wrapper {
+	margin-top: 80px;
+  margin-bottom: 80px;
+  background-color: white;
+}
+
+</style>
+
+<center>
+<div class="wrapper">
+
+<h1>Are you sure you would like to confirm your flight to Perú for these dates?:</h1>
+<h1>Departing at {{ departure_date }} at {{ departure_times }}.</h1>
+
+<h1>Returning at {{ return_date }} at {{ return_times }}.</h1>
+
+<h1>Price = $433.00</h1>
+
+<form class="form-signin" action="{{ url_for('flight_peru.confirm_dates_for_peru_trip') }}" method="POST">
+
+<button class="btn btn-lg btn-primary btn-block" type="submit">Confirm flight purchase</button>
+    </form>
+</div>
+</center>

@@ -1,0 +1,2 @@
+{'yo ser': 'yo soy', 'ella ser': 'ella es', 'nosotros ser': 'nosotros somos', 'ellos ser': 'ellos son', 'ustedes ser': 'ustedes son',
+'usted ser': 'usted es', 'yo ir': 'yo voy', 'Pablo ir': 'Pablo va', 'mi familia y yo ir': 'mi familia y yo vamos'}

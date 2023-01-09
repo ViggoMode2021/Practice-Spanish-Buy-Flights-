@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+*{
+    box-sizing: border-box;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+.main-wrapper {
+    max-width: 1170px;
+    margin: 0 auto;
+    text-align: center;
+}
+.upload-main-wrapper{
+    width: 220px;
+    margin: 0 auto;
+}
+#file-upload-name{
+    margin: 4px 0 0 0;
+    font-size: 12px;
+}
+.upload-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 40px auto 0;
+    position: relative;
+    cursor: pointer;
+    background-color: #bcaef5;
+    padding: 8px 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.2s linear all;
+    color: #ffffff;
+}
+.upload-wrapper input[type="file"] {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+.upload-wrapper > svg {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+.upload-wrapper.success > svg{
+    transform: translateX(-200px);
+}
+.upload-wrapper.uploaded {
+    transition: 0.2s linear all;
+    width: 60px;
+    border-radius: 50%;
+    height: 60px;
+    text-align: center;
+}
+.upload-wrapper .file-upload-text {
+    position: absolute;
+    left: 80px;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.2s linear all;
+}
+.upload-wrapper.uploaded .file-upload-text {
+    text-indent: -999px;
+    margin: 0;
+}
+.file-success-text {
+    opacity: 0;
+    transition: 0.2s linear all;
+    visibility: hidden;
+    transform: translateX(200px);
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.file-success-text svg {
+    width: 25px;
+    height: auto;
+}
+.file-success-text span{
+   margin-left: 15px;
+}
+.upload-wrapper.success .file-success-text{
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+.upload-wrapper.success.uploaded .file-success-text{
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+.upload-wrapper.success.uploaded .file-success-text span{
+    display: none;
+}
+.upload-wrapper .file-success-text circle{
+	  stroke-dasharray: 380;
+    stroke-dashoffset: 380;
+    transition: 1s linear all;
+    transition-delay: 1.4s;
+}
+.upload-wrapper.success .file-success-text  circle {
+	stroke-dashoffset: 0;
+}
+.upload-wrapper .file-success-text polyline {
+	stroke-dasharray: 380;
+	stroke-dashoffset: 380;
+	transition: 1s linear all;
+	transition-delay: 2s;
+}
+.upload-wrapper.success .file-success-text polyline {
+    stroke-dashoffset: 0;
+}
+.upload-wrapper.success .file-upload-text{
+    -webkit-animation-name: bounceOutLeft;
+    animation-name: bounceOutLeft;
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes bounceOutLeft {
+    20% {
+        opacity: 1;
+        -webkit-transform: translate3d(20px, 0, 0);
+        transform: translate3d(20px, 0, 0);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(-2000px, 0, 0);
+        transform: translate3d(-2000px, 0, 0);
+    }
+}
+
+@keyframes bounceOutLeft {
+    20% {
+        opacity: 1;
+        -webkit-transform: translate3d(20px, 0, 0);
+        transform: translate3d(20px, 0, 0);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(-2000px, 0, 0);
+        transform: translate3d(-2000px, 0, 0);
+    }
+}
+
+body{
+
+background-color: red;
+
+}
+
+#upload{
+
+background-color: purple;
+color: white;
+font-size: 25px;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 15px 25px;
+  font-size: 22px;
+  text-decoration: none;
+  margin: 20px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+.blue {
+  background-color: #55acee;
+  box-shadow: 0px 5px 0px 0px #3C93D5;
+}
+
+.green {
+  background-color: #2ecc71;
+  box-shadow: 0px 5px 0px 0px #15B358;
+}
+
+h1{
+
+font-size: 25px;
+
+}
+
+h2{
+
+font-size: 25px;
+color: white;
+
+}
+
+h3{
+
+color: black;
+font-size: 25px;
+
+}
+
+h4{
+
+color: white;
+font-size: 22px;
+
+}
+
+h5{
+
+color: white;
+font-size: 30px;
+
+}
+
+.separator--line {
+  border: 0;
+  border-bottom: $separator-size $separator-border-style $separator-border-color;
+
+  width: 0;
+  animation: separator-width 1s ease-out forwards;
+}
+@keyframes separator-width {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+hr.style5 {
+	background-color: #fff;
+	border-top: 2px dashed #8c8b8b;
+}

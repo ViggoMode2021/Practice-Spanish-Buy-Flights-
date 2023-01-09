@@ -1,0 +1,93 @@
+<h5 id ="page_title"><img src="https://imgs.search.brave.com/_czpgeoDi_AuLpczZBnzMA9E4MiyUCvZUQ2cQqVH1L8/rs:fit:250:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC44/Qzdqb1Vidm1QdGNs/V1BIWmpwdzRRSGFI/YSZwaWQ9QXBp" width="30"
+     height="30">Verbs - Colombia<img src="https://imgs.search.brave.com/_czpgeoDi_AuLpczZBnzMA9E4MiyUCvZUQ2cQqVH1L8/rs:fit:250:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC44/Qzdqb1Vidm1QdGNs/V1BIWmpwdzRRSGFI/YSZwaWQ9QXBp" width="30"
+     height="30"></h5>
+
+<head>
+    <title>Colombia - guess random verb</title>
+            <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+    </head>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/word_guess_page.css') }}">
+
+<h2 id = "dictionary_verbs_count">{{ my_dictionary_verbs_count }} verbs learned out of 52</h2>
+
+<h3 id = "overall_score_count">Your overall score: {{ overall_score }}</h3>
+
+<div>
+<center>
+    <h4>{{ printed_answer_colombia_word }}</h4>
+</center>
+    </div>
+
+        <link type="text/css" rel="stylesheet" href="stylesheet.css" />
+        <meta name="viewport" content="width=device-width">
+        <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+
+<form class="" action="{{ url_for('colombia_verbs.word_guess_page_colombia_submit') }}" method="POST">
+    <input id = "input" type="text" class="form-control" name="word_guess_page_colombia_submit" id="word_guess_page_colombia_submit" placeholder="Type here" maxlength="30"
+    required=""/>
+        <input id = "button" type="submit" value="Submit" class="form-control btn btn-primary">
+    </form>
+
+<div id="wrapper">
+    <div id="container">
+        <section class="open-book">
+            <article>
+                <h2 class="chapter-title">Translate:</h2>
+                <p id ='random_word'>
+                    {{ random_verb_english }}
+                </p>
+        </section>
+    </div>
+</div>
+
+</form>
+
+</form>
+
+<form class="" action="{{ url_for('colombia_verbs.word_guess_page_colombia') }}" method="GET">
+        <input id = "button_two" type="submit" value="Guess (infinitive verb)" class="form-control btn btn-primary">
+ </form>
+
+ <form class="" action="{{ url_for('level_selector') }}" method="GET">
+        <input id = "level_selector" type="submit" value="Level selector" class="form-control btn btn-primary">
+ </form>
+
+
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<center>
+
+    <h4>Accent marks (copy and paste):</h4>
+
+<button onclick="copyToClipboard('#p1')">á</button>
+<button onclick="copyToClipboard('#p2')">é</button>
+    <button onclick="copyToClipboard('#p3')">í</button>
+<button onclick="copyToClipboard('#p4')">ó</button>
+    <button onclick="copyToClipboard('#p5')">ú</button>
+<button onclick="copyToClipboard('#p6')">ü</button>
+    <button onclick="copyToClipboard('#p7')">ñ</button>
+
+    <p id="p1">á</p><br/>
+<p id="p2">é</p><br/>
+    <p id="p3">í</p>
+<p id="p4">ó</p><br/>
+    <p id="p5">ú</p>
+<p id="p6">ü</p><br/>
+    <p id="p7">ñ</p>
+
+</center>
+
+<script>
+    function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+</script>
+
+</html>

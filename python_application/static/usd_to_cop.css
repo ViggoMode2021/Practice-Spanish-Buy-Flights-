@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300|Noto+Sans|Roboto+Mono:300');
+@import url('https://use.fontawesome.com/releases/v5.2.0/css/all.css');
+
+$background-color: #fee2e2;
+$symbol-color: #fd9b9b;
+$base-background: #fc5154;
+$converted-background: #fff;
+$border-radius: 2vmin;
+$card-vertical-padding: 2vmin;
+$padding-with-pseudo: calc(17% + #{$card-vertical-padding});
+$base-after-dimension: 17vmin;
+$base-converted-difference: 2vmin;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-color;
+}
+
+.convertor-card {
+  height: 80vmin;
+  width: 50vmin;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+  border-radius: 2px;
+}
+
+@mixin pseudo-style($height-and-width, $background-color, $z-index) {
+  content: '';
+  height: $height-and-width;
+  width: $height-and-width;
+  border-radius: 100%;
+  background-color: $background-color;
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  position: absolute;
+  transform: translateY(-50%) rotate(-45deg);
+  z-index: $z-index;
+}
+
+.base,
+.converted {
+  grid-column: 1 / 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 4vmin;
+  position: relative;
+}
+
+.base {
+  flex-direction: column;
+  grid-row: 1 / 2;
+  padding-top: $card-vertical-padding;
+  padding-bottom: $padding-with-pseudo;
+  background: $base-background;
+  color: $converted-background;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+  &::before {
+    @include pseudo-style($base-after-dimension, $converted-background, 2);
+    top: 100%;
+  }
+  &::after {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f061';
+    font-size: 8vmin;
+    font-weight: 900;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-50%) rotate(90deg);
+    z-index: 3;
+    color: $base-background;
+  }
+}
+
+.converted {
+  flex-direction: column-reverse;
+  grid-row: 2 / 3;
+  padding-top: $padding-with-pseudo;
+  padding-bottom: $card-vertical-padding;
+  background: $converted-background;
+  color: $base-background;
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+  &::before {
+    @include pseudo-style(
+      calc(#{$base-after-dimension} + #{$base-converted-difference}),
+      $base-background,
+      1
+    );
+    bottom: calc(50% + #{$base-converted-difference} / 2);
+    z-index: 1;
+  }
+}
+
+.name {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 3vmin;
+  letter-spacing: 0.2em;
+}
+
+.value {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 11vmin;
+  letter-spacing: 0.04em;
+}
+
+.symbol {
+  font-family: 'Noto Sans', sans-serif;
+  margin-left: -1.2vmin;
+  opacity: 0.7;
+}
+
+.abbr {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+}
+
+h5{
+
+color: red;
+font-size: 20px;
+
+}

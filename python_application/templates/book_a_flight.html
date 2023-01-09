@@ -1,0 +1,150 @@
+<head>
+	<title>Book a flight</title>
+	<link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+</head>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/flights.css') }}">
+
+<meta name="viewport" content="width=device-width">
+
+<title>{{ title }}</title>
+
+<center>
+{% with messages = get_flashed_messages()  %}
+    {% if messages %}
+    {% for message in messages %}
+    <div id="confirmation-box" class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" onclick="document.getElementById('confirmation-box').style.display = 'none'" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</center>
+
+<header class="header">
+	<div class="header-content">
+		<div class="header-logo">
+			<h1 class="logo">Book a flight</h1>
+			<br>
+			<h4>You have {{ overall_score }} points to spend on a flight.</h4>
+			<br>
+			<a id = "my_flights" href="{{ url_for('flights.my_flights') }}">My flights ✈</a>
+		</div>
+		<nav class="header-navigation">
+			<a id = "level_selector" href="{{ url_for('level_selector') }}">Level selector</a>
+		</nav>
+	</div>
+</header>
+<main>
+	<div class="responsive-container">
+		<div class="grid">
+			<div class="grid-column">
+								<a class="product" href="{{ url_for('flights.book_colombia_flight') }}">
+					<div class="product-image">
+						<img src="https://imgs.search.brave.com/2_PkGs0IIZR_UutgmqXo_onAh8MsTXqSBmYWnmsD78c/rs:fit:961:721:1/g:ce/aHR0cHM6Ly9kZXN0/aW5hdGlvbmxlc3N0/cmF2ZWwuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE4LzA0/L21lZGVsbGluLWZy/b20tYWJvdmUtOTYx/eDcyMS5qcGc" />
+					</div>
+					<div class="product-content">
+						<div class="product-info">
+							<h2 class="product-title">Flight to Medellín, Colombia</h2>
+							<p class="product-price">$ 350.00</p>
+							<p class="product-price">{{ medellin_weather }}</p>
+							<p id = "price_confirmation" class="product-price">{{ colombia_flight_confirmed }}</p>
+						</div>
+					</div>
+				</a>
+				<a class="product" href="{{ url_for('flights.book_peru_flight') }}">
+					<div class="product-image">
+						<img src="https://imgs.search.brave.com/QKUIk1qnWxe1WZQvYQleCB75hc7f2gAeq6AISRSOBt4/rs:fit:1200:1200:1/g:ce/aHR0cDovL3d3dy5v/bnRoZWdvdG91cnMu/Y29tL2Jsb2cvd3At/Y29udGVudC91cGxv/YWRzLzIwMTUvMDMv/TGltYWRyZWFtc3Rp/bWVfeHhsXzQzMDYz/MTA2LmpwZw" />
+					</div>
+					<div class="product-content">
+						<div class="product-info">
+							<h2 class="product-title">Flight to Lima, Perú</h2>
+							<p class="product-price">$ 433.00</p>
+							<p class="product-price">{{ lima_weather }}</p>
+							<p id = "price_confirmation" class="product-price">{{ peru_flight_confirmed }}</p>
+						</div>
+					</div>
+				</a>
+				<a class="product" href="#">
+					<div class="product-image">
+							<img src="https://imgs.search.brave.com/de7J1XhiwzZiW1FPO0MXIToJVqNkN3gKig-903gIGt0/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/dHJpcHNhdnZ5LmNv/bS90aG1iL2l0OHNI/aDBvVmlicTQ3bGFl/X3FFWjFueUpEMD0v/NDIzNXgyNDcxL2Zp/bHRlcnM6ZmlsbChh/dXRvLDEpL0dldHR5/SW1hZ2VzLTU0NTYz/NDY4Ny01OGVmZWVi/ZDNkZjc4Y2QzZmNk/ZjMzN2UuanBn" />
+					</div>
+					<div class="product-content">
+						<div class="product-info">
+							<h2 class="product-title">Flight to Ciudad de México, México</h2>
+							<p class="product-price">{{ mexico_weather }}</p>
+							<p class="product-price">$ 212.00</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="grid-column">
+				<a class="product" href="{{ url_for('flights.puerto_rico_flight') }}">
+					<div class="product-image">
+						<img src="https://imgs.search.brave.com/_Z9QeaRCipsxJVjghAelQfMSx_sxo8flLv0wmYDttwI/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9zLnlp/bWcuY29tL3V1L2Fw/aS9yZXMvMS4yL1hV/N0w2ZFd3RWsuTjBr/V0RpaWZrUUEtLX5C/L2FEMDBNREEwTzNj/OU5qQXdNRHR6YlQw/eE8yRndjR2xrUFhs/MFlXTm9lVzl1L2h0/dHA6Ly9tZWRpYS56/ZW5mcy5jb20vZW4t/VVMvaG9tZXJ1bi9h/cmNoaXRlY3R1cmFs/X2RpZ2VzdF80MjIv/YzNkOWMwMGRmNTdm/YWI5NDkzYmZlNzZk/YjYyMjNkOTY" />
+					</div>
+					<div class="product-content">
+						<div class="product-info">
+							<h2 class="product-title">Flight to San Juan, Puerto Rico</h2>
+							<p class="product-price">$ 130.00</p>
+							<p class="product-price">{{ san_juan_weather }}</p>
+							<p id = "price_confirmation" class="product-price">{{ puerto_rico_flight_confirmed }}</p>
+						</div>
+					</div>
+				</a>
+				<a class="product" href="{{ url_for('flights.book_spain_flight') }}">
+					<div class="product-image">
+						<img src="https://imgs.search.brave.com/N6GtIZrbKUKvWxE9YRALsgIqQSLj2X5e52NklmAfsgI/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC56/S2ZDT1d0OXFGWUhl/cS1fSzNmYmJnSGFF/OCZwaWQ9QXBp" />
+					</div>
+					<div class="product-content">
+						<div class="product-info">
+							<h2 class="product-title">Flight to Madrid, España</h2>
+							<p class="product-price">$ 546.00</p>
+							<p class="product-price">{{ madrid_weather }}</p>
+							<p id = "price_confirmation" class="product-price">{{ spain_flight_confirmed }}</p>
+						</div>
+					</div>
+				</a>
+				<a class="product" href="#">
+					<div class="product-image">
+						<img src="https://imgs.search.brave.com/Y03RYztuBVAJTEZikeNyBb7XHH3BIB2p1iNFZs9ZBOk/rs:fit:1200:1080:1/g:ce/aHR0cHM6Ly9ndWlh/YXJxdWl0ZWN0dXJh/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMC8xMS9idWVu/b3MtYWlyZXMtY2l1/ZGFkLmpwZw" />
+					</div>
+					<div class="product-content">
+						<div class="product-info">
+							<h2 class="product-title">Flight to Buenos Aires, Argentina</h2>
+							<p class="product-price">$ 823.00</p>
+							<p class="product-price">{{ buenos_aires_weather }}</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="grid-column">
+				<a class="product" href="#">
+					<div class="product-image">
+						<img src="" />
+					</div>
+					<div class="product-content">
+						<div class="product-info">
+							<h2 class="product-title">TBA</h2>
+							<p class="product-price">$ TBA</p>
+						</div>
+					</div>
+				</a>
+				<a class="product" href="#">
+					<div class="product-image">
+						<img src="" />
+					</div>
+					<div class="product-content">
+						<div class="product-info">
+							<h2 class="product-title">TBA</h2>
+							<p class="product-price">$ TBA</p>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</main>

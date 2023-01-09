@@ -1,0 +1,31 @@
+<title>Confirm flight - España</title>
+
+<style>
+    body {
+	  background-image:url("https://imgs.search.brave.com/-ZllxAICZDzotOJZFCxRnPvq0-vCSaiHJaagz6nK6N8/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9jZG4u/b2R5c3NleXRyYXZl/bGxlci5jb20vYXBw/L3VwbG9hZHMvMjAx/OS8xMi9DaWJlbGVz/LUZvdW50YWluLWlu/LURvd250b3duLU1h/ZHJpZC5qcGc")
+}
+
+.wrapper {
+	margin-top: 80px;
+  margin-bottom: 80px;
+  background-color: white;
+}
+
+</style>
+
+<center>
+<div class="wrapper">
+
+<h1>Are you sure you would like to confirm your flight to España for these dates?:</h1>
+<h1>Departing at {{ departure_date }} at {{ departure_times }}.</h1>
+
+<h1>Returning at {{ return_date }} at {{ return_times }}.</h1>
+
+<h1>Price = $546.00</h1>
+
+<form class="form-signin" action="{{ url_for('flight_spain.confirm_dates_for_spain_trip') }}" method="POST">
+
+<button class="btn btn-lg btn-primary btn-block" type="submit">Confirm flight purchase</button>
+    </form>
+</div>
+</center>

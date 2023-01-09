@@ -1,0 +1,4 @@
+{"it's hot": "hace calor", "it's cold": "hace frio",
+"it's windy": "hace viento", "it's raining": "llueve",
+"it's cloudy": "esta nublado", "There's a storm": "hay tormenta",
+"there's thunder": "hay trueno", "there's lightning": "hay relampagos"}

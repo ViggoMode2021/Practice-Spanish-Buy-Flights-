@@ -1,0 +1,182 @@
+<head>
+  	<link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+<title>Book flight - Puerto Rico</title>
+</head>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/book_puerto_rico_flight_page.css') }}">
+
+    {% with messages = get_flashed_messages()  %}
+    {% if messages %}
+    {% for message in messages %}
+    <div id="confirmation-box" class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" onclick="document.getElementById('confirmation-box').style.display = 'none'" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+<div class="wrapper">
+    <form class="form-signin" action="{{ url_for('flights.select_dates_for_puerto_rico_trip') }}" method="POST">
+      <h2 class="form-signin-heading">Select dates for your trip to San Juan, Puerto Rico:</h2>
+        <br>
+        <center>
+        <label for="departure_years">Choose a departure year:</label>
+      <select name="departure_years" id="departure_years">
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+      </select>
+            <br>
+            <br>
+            <label for="departure_months">Choose a departure month:</label>
+      <select name="departure_months" id="departure_months">
+        <option value="01">01</option>
+        <option value="02">02</option>
+          <option value="03">03</option>
+        <option value="04">04</option>
+          <option value="05">05</option>
+        <option value="06">06</option>
+          <option value="07">07</option>
+        <option value="08">08</option>
+          <option value="09">09</option>
+        <option value="10">10</option>
+          <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+        <br>
+            <br>
+        <label for="departure_days">Choose a departure day:</label>
+      <select name="departure_days" id="departure_days">
+        <option value="01">01</option>
+        <option value="02">02</option>
+          <option value="03">03</option>
+        <option value="04">04</option>
+          <option value="05">05</option>
+        <option value="06">06</option>
+          <option value="07">07</option>
+        <option value="08">08</option>
+          <option value="09">09</option>
+        <option value="10">10</option>
+          <option value="11">11</option>
+        <option value="12">12</option>
+          <option value="13">13</option>
+        <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+        <option value="17">17</option>
+          <option value="18">18</option>
+        <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+        <option value="22">22</option>
+          <option value="23">23</option>
+        <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+        <option value="27">27</option>
+          <option value="28">28</option>
+        <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+      </select>
+          <br>
+          <br>
+           <label for="departure_times">Choose a departure time:</label>
+      <select name="departure_times" id="departure_times">
+        <option value="7:00 am">7:00 am</option>
+        <option value="8:00 am">8:00 am</option>
+        <option value="9:00 am">9:00 am</option>
+        <option value="10:00 am">10:00 am</option>
+        <option value="11:00 am">11:00 am</option>
+        <option value="12:00 pm">12:00 pm</option>
+        <option value="1:00 pm">1:00 pm</option>
+        <option value="2:00 pm">2:00 pm</option>
+        <option value="3:00 pm">3:00 pm</option>
+        <option value="4:00 pm">4:00 pm</option>
+      </select>
+           <br>
+            <br>
+          <br>
+            <br>
+          <label for="return_years">Choose a return year:</label>
+      <select name="return_years" id="return_years">
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+      </select>
+            <br>
+            <br>
+            <label for="return_months">Choose a return month:</label>
+      <select name="return_months" id="return_months">
+        <option value="01">01</option>
+        <option value="02">02</option>
+          <option value="03">03</option>
+        <option value="04">04</option>
+          <option value="05">05</option>
+        <option value="06">06</option>
+          <option value="07">07</option>
+        <option value="08">08</option>
+          <option value="09">09</option>
+        <option value="10">10</option>
+          <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+        <br>
+          <br>
+        <label for="return_days">Choose a return day:</label>
+      <select name="return_days" id="return_days">
+        <option value="01">01</option>
+        <option value="02">02</option>
+          <option value="03">03</option>
+        <option value="04">04</option>
+          <option value="05">05</option>
+        <option value="06">06</option>
+          <option value="07">07</option>
+        <option value="08">08</option>
+          <option value="09">09</option>
+        <option value="10">10</option>
+          <option value="11">11</option>
+        <option value="12">12</option>
+          <option value="13">13</option>
+        <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+        <option value="17">17</option>
+          <option value="18">18</option>
+        <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+        <option value="22">22</option>
+          <option value="23">23</option>
+        <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+        <option value="27">27</option>
+          <option value="28">28</option>
+        <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+      </select>
+           <br>
+            <br>
+          <label for="return_times">Choose a return time:</label>
+      <select name="return_times" id="return_times">
+        <option value="7:00 am">7:00 am</option>
+        <option value="8:00 am">8:00 am</option>
+        <option value="9:00 am">9:00 am</option>
+        <option value="10:00 am">10:00 am</option>
+        <option value="11:00 am">11:00 am</option>
+        <option value="12:00 pm">12:00 pm</option>
+        <option value="1:00 pm">1:00 pm</option>
+        <option value="2:00 pm">2:00 pm</option>
+        <option value="3:00 pm">3:00 pm</option>
+        <option value="4:00 pm">4:00 pm</option>
+      </select>
+            </center>
+      <br><br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Select Dates</button>
+    </form>
+  </div>

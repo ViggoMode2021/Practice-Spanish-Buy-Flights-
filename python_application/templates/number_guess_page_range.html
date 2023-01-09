@@ -1,0 +1,111 @@
+<title>Input a number range</title>
+
+<head>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+</head>
+
+<style>
+    #number_range {
+    color: black;
+    font-size: 30px;
+    font-color: red;
+    }
+
+    #submit_button{
+    color: black;
+    font-size: 25px;
+    font-color: green;
+    }
+
+    h1{
+
+    color: white;
+    }
+
+    #level_selector{
+    font-size: 25px;
+    text-color: black;
+    }
+
+     body {
+	  background-color: blue;
+	  }
+
+.btn-1 {
+  background: white;
+  background: linear-gradient(0deg, rgba(6,14,131,1) 0%, rgba(12,25,180,1) 100%);
+  border: none;
+}
+
+.btn-1:hover {
+   background: rgb(0,3,255);
+   background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
+}
+
+button {
+  margin: 20px;
+}
+
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+</style>
+
+<body>
+
+<center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1> Input a number range below:</h1>
+<form class="" action="{{ url_for('estados_unidos_numbers.number_guess_page_range_submit') }}" method="POST">
+         <input id = "number_range" type="text" class="form-control" name="number_guess_page_range_1" id="number_guess_page_range_1" placeholder="Starting # (example: 0)" maxlength="30" required=""/>
+         <input id = "number_range" type="text" class="form-control" name="number_guess_page_range_2" id="number_guess_page_range_2" placeholder="Ending # (ex: 1,000,000)" maxlength="30" required=""/>
+        <button class="custom-btn btn-1">Guess</button>
+ </form>
+    </center>
+<center>
+    <br>
+    <br>
+    <br>
+
+<form class="" action="{{ url_for('level_selector') }}" method="GET">
+        <button class="custom-btn btn-1">Level Selector</button>
+     </form>
+
+</center>
+</body>
+{% with messages = get_flashed_messages()  %}
+    {% if messages %}
+    {% for message in messages %}
+    <div id="confirmation-box" class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" onclick="document.getElementById('confirmation-box').style.display = 'none'" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+</Html>

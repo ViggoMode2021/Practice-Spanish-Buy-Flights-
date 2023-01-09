@@ -1,0 +1,187 @@
+<head>
+<Title>{{title}} {{dictionary_sort_type}}</Title>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+</head>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/my_flights.css') }}">
+
+<center>
+{% with messages = get_flashed_messages()  %}
+    {% if messages %}
+    {% for message in messages %}
+    <div id="confirmation-box" class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" onclick="document.getElementById('confirmation-box').style.display = 'none'" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</center>
+
+<left>
+    <a href="{{ url_for('study_list') }}" id = "study_link">Click here to see what I need to study 📖</td></a>
+</left>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+body {
+	margin: 0;
+	background: #222;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 800;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+header {
+  background: #55d6aa;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logo {
+  float: left;
+  padding: 10px 0;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+
+  position: relative;
+}
+
+nav a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #444;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+ #study_link:hover {
+        color: red;
+ }
+ #study_link:visited {
+        color: yellow;
+ }
+    #study_link:focus {
+        color: yellow;
+ }
+
+ caption{
+
+ color: yellow;
+
+ }
+
+</style>
+
+<header>
+    <div class="container">
+      <h1 class="logo"></h1>
+
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('my_dictionary_places') }}">Places (lugares)</a></li>
+          <li><a href="{{ url_for('my_dictionary_times') }}">Times (horas)</a></li>
+          <li><a href="{{ url_for('my_dictionary_numbers') }}">Numbers (números)</a></li>
+          <li><a href="{{ url_for('my_dictionary_adjectives') }}">Adjectives (adjetivos)</a></li>
+            <li><a href="{{ url_for('my_dictionary_foods_and_drinks') }}">Foods and drinks (comidas y bebidas)</a></li>
+            <li><a href="{{ url_for('my_dictionary_greetings_and_farewells') }}">Greetings and farewells (saludos y despedidas)</a></li>
+            <li><a href="{{ url_for('my_dictionary_dates') }}">Dates (fechas)</a></li>
+            <li><a href="{{ url_for('my_dictionary_weather') }}">Weather (el tiempo/clima)</a></li>
+            <li><a href="{{ url_for('my_dictionary_questions') }}">Questions (preguntas)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<table>
+  <caption>My dictionary {{ dictionary_sort_type }}</caption>
+
+    <caption>{{ my_dictionary_total_count }}{{ my_dictionary_places_count }}{{ my_dictionary_adjectives_count }}{{ my_dictionary_foods_and_drinks_count}}
+     {{ my_dictionary_times_count }}{{ my_dictionary_numbers_count }}{{ my_dictionary_greetings_and_farewells_count }}{{ my_dictionary_dates_count }}
+        {{my_dictionary_weather_count}}{{my_dictionary_questions_count}}
+        words learned</caption>
+
+    {% for row in my_dictionary %}
+  <thead>
+    <tr>
+        <th scope="col">Entry ID</th>
+        <th scope="col">Category</th>
+      <th scope="col">English Word</th>
+      <th scope="col">Spanish Word</th>
+      <th scope="col">Date added</th>
+        <th scope="col">Time added</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td data-label="Account">{{row[0]}}</td>
+        <td data-label="Account">{{row[5]}}</td>
+      <td data-label="Account">{{row[1]}}</td>
+      <td data-label="Account"><a href="https://www.spanishdict.com/translate/{{row[1]}}">{{row[2]}}</td>
+      <td data-label="Due Date">{{row[3]}}</td>
+        <td data-label="Time">{{row[4]}}</td>
+        <td width="130">
+            <div class="form-group">
+                <form action="delete_dictionary_entry/{{row[0]}}" method="POST">
+                    <button type="submit" id = "delete_dictionary_record">Delete Entry</button>
+                </form>
+        {% endfor %}
+    </tr>
+  </tbody>
+</table>
+
+<a href="{{ url_for('flights.book_a_flight') }}" class="btn green">Book flight</a>
+
+ <form class="" action="{{ url_for('level_selector') }}" method="GET">
+        <input id = "level_selector" type="submit" value="Level selector" class="form-control btn btn-primary">
+ </form>
+
+ <form class="" action="{{ url_for('flashcards') }}" method="GET">
+        <input id = "level_selector" type="submit" value="Create flashcards" class="form-control btn btn-secondary">
+ </form>
+
+

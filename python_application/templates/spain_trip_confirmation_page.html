@@ -1,0 +1,42 @@
+<title>Flight confirmed - Madrid, España</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/spain_trip_confirmation_page.css') }}">
+
+<body>
+<center>
+<div class="wrapper">
+
+<h1>Trip confirmed!</h1>
+
+<h1>You are going to Madrid, España.</h1>
+
+<h1>Departure Date: {{ departure_date }}.</h1>
+
+<h1>Departure Time: {{ departure_time }}.</h1>
+
+<h1>Return Date: {{ return_date }}.</h1>
+
+<h1>Return Time: {{ return_time }}.</h1>
+
+<h1>Your overall score balance is {{ updated_overall_score }}.</h1>
+
+    <h2>You will be redirected in 3 seconds. Please do not refresh the page.</h2>
+
+<a href="{{ url_for('level_selector') }}" class="btn blue">Level selector</a>
+
+<a href="{{ url_for('flights.book_a_flight') }}" class="btn green">Book another flight</a>
+</div></center>
+
+<center>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul id = "flash" class=flashes>
+    {% for message in messages %}
+        <li>{{ message | safe }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</center>
+
+</body>

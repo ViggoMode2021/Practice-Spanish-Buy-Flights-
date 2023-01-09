@@ -1,0 +1,3 @@
+{'good morning': 'buenos dias', 'good afternoon': 'buenas tardes', 'good evening': 'buenas noches', 'hello': 'hola',
+ 'goodbye': 'adios', 'see you later': 'hasta luego', 'see you soon': 'hasta pronto', 'see you tomorrow': 'hasta manana',
+ 'see you Monday': 'hasta lunes', 'see you Friday': 'hasta viernes', 'see you Saturday': 'hasta sabado'}

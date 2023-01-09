@@ -1,0 +1,66 @@
+<head>
+<title>My results for {{ category_name }}</title>
+	<link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+</head>
+
+<center>
+{% with messages = get_flashed_messages()  %}
+    {% if messages %}
+    {% for message in messages %}
+    <div id="confirmation-box" class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" onclick="document.getElementById('confirmation-box').style.display = 'none'" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</center>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user_practice_records.css') }}">
+
+<h1>Number of {{ category_name }} correct: {{ user_practice_records_correct }}</h1>
+<h2>Number of {{ category_name }} incorrect: {{ user_practice_records_incorrect }}</h2>
+
+<h3>{{ study_suggestion }}</h3>
+
+<table>
+  <caption>My results for {{ category_name }}</caption>
+    {% for row in user_practice_records_by_category %}
+  <thead>
+    <tr>
+        <th scope="col">ID</th>
+      <th scope="col">Category</th>
+      <th scope="col">English</th>
+      <th scope="col">Spanish</th>
+      <th scope="col">Outcome</th>
+      <th scope="col">Date Guessed</th>
+        <th scope="col">Time Guessed</th>
+        <th scope="col">Delete Record</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td data-label="Account">{{row[0]}}</td>
+      <td data-label="Account">{{row[1]}}</td>
+      <td data-label="Account">{{row[2]}}</td>
+      <td data-label="Due Date">{{row[3]}}</td>
+      <td data-label="Amount">{{row[4]}}</td>
+        <td data-label="Period">{{row[5]}}</td>
+        <td data-label="Period">{{row[6]}}</td>
+      <td width="130">
+                    <div class="form-group">
+                <form action="delete_practice_record/{{row[0]}}" method="POST">
+                         <button type="submit" id="level_selector" class="btn btn-success">Delete Record</button>
+                    </form>
+        {% endfor %}
+    </tr>
+  </tbody>
+</table>
+
+<a href="{{ url_for('flights.book_a_flight') }}" class="btn green">Book another flight</a>
+
+ <form class="" action="{{ url_for('level_selector') }}" method="GET">
+        <input id = "level_selector" type="submit" value="Level selector" class="form-control btn btn-primary">
+ </form>

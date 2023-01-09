@@ -1,0 +1,5 @@
+{'yo hablar': 'yo hablo', 'nosotros hablar': 'nosotros hablamos', 'ellos hablar': 'ellos hablan', 'tú hablar': 'tú hablas',
+ 'ella hablar': 'ella habla', 'yo comer': 'yo como', 'tú comer': 'tú comes', 'mis amigos y yo comer': 'mis amigos y yo comemos',
+ 'yo vivir': 'yo vivo', 'usted vivir': 'usted vive', 'ellas vivir': 'ellas viven', 'yo practicar': 'yo practico', 'nosotros practicar':
+ 'nosotros practicamos', 'ustedes escribir': 'ustedes escriben', 'yo necesitar': 'yo necesito', 'tú necesitar': 'tú necesitas',
+ 'ella necesitar': 'ella necesita', 'nosotros necesitar': 'nosotros necesitamos'}

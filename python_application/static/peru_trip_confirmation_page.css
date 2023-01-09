@@ -1,0 +1,39 @@
+.btn {
+  border-radius: 5px;
+  padding: 15px 25px;
+  font-size: 22px;
+  text-decoration: none;
+  margin: 20px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+.wrapper {
+	margin-top: 80px;
+  margin-bottom: 80px;
+  background-color: white;
+}
+
+.blue {
+  background-color: #55acee;
+  box-shadow: 0px 5px 0px 0px #3C93D5;
+}
+
+.green {
+  background-color: #2ecc71;
+  box-shadow: 0px 5px 0px 0px #15B358;
+}
+
+body {
+	  background-image:url("https://imgs.search.brave.com/_mVxm28RzoLrvD8nW78ZAPX1Myh3qy4MKchfpMvHzGQ/rs:fit:713:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC51/YVVZZ0poT3ZvSDBC/TldjcXJyYk13SGFF/NyZwaWQ9QXBp")
+}
+
+#confirmation-box{
+
+background-color: red;
+color: white;
+border-radius: 5px;
+padding: 15px 25px;
+
+}

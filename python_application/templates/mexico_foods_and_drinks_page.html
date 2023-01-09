@@ -1,0 +1,95 @@
+<h5><img src="https://imgs.search.brave.com/5D4eVnoKWUC1Ih8_bQY2fJ06DNEgqeV5oJ7pF8d1NWk/rs:fit:844:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5L/MlVhMEZpSzJnNkZa/aDFKOHVwQ1NBSGFF/SyZwaWQ9QXBp" width="30"
+     height="30">Foods + Drinks - México<img src="https://www.countryflags.com/wp-content/uploads/mexico-flag-png-large.png" width="30"
+     height="30"></h5>
+
+<left>
+    <a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_foods_and_drinks') }}" id = "study_link">Foods + drinks to study 📖</td></a>
+        <a href="{{ url_for('my_dictionary_foods_and_drinks') }}" id = "study_link_2">Foods + drinks learned 📖</td></a>
+</left>
+
+<head>
+    <title>Foods + Drinks - México</title>
+        <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+    </head>
+        <link type="text/css" rel="stylesheet" href="stylesheet.css" />
+        <meta name="viewport" content="width=device-width">
+        <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mexico_food_and_drinks_page.css') }}">
+
+<h2 id = "dictionary_verbs_count">{{ my_dictionary_foods_and_drinks_count }} foods + drinks learned out of 44</h2>
+
+<h3 id = "overall_score_count">Your overall score: {{ overall_score }}</h3>
+
+<form class="" action="{{ url_for('mexico_foods_and_drinks.mexico_foods_and_drinks_submit') }}" method="POST">
+    <input id = "input" type="text" class="form-control" name="random_food_or_drink_submit" id="random_food_or_drink_submit" placeholder="Type here" maxlength="50"
+    required=""/>
+        <input id = "button" type="submit" value="Submit" class="form-control btn btn-primary">
+    </form>
+
+<div>
+<center>
+    <h4>{{ printed_answer_food_or_drink }}
+</h4>
+</center>
+    </div>
+
+<div id="wrapper">
+    <div id="container">
+        <section class="open-book">
+            <article>
+                <h2 class="chapter-title">Translate:</h2>
+                <p id ='random_word'>
+                    {{ random_food_or_drink }}
+                </p>
+        </section>
+    </div>
+</div>
+
+</form>
+
+</form>
+
+<form class="" action="{{ url_for('mexico_foods_and_drinks.mexico_foods_and_drinks_page') }}" method="GET">
+        <input id = "button_two" type="submit" value="Guess again" class="form-control btn btn-primary">
+</form>
+
+ <form class="" action="{{ url_for('level_selector') }}" method="GET">
+        <input id = "level_selector" type="submit" value="Level selector" class="form-control btn btn-primary">
+ </form>
+
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<h4>Accent marks (copy and paste):</h4>
+
+<button onclick="copyToClipboard('#p1')">á</button>
+<button onclick="copyToClipboard('#p2')">é</button>
+    <button onclick="copyToClipboard('#p3')">í</button>
+<button onclick="copyToClipboard('#p4')">ó</button>
+    <button onclick="copyToClipboard('#p5')">ú</button>
+<button onclick="copyToClipboard('#p6')">ü</button>
+    <button onclick="copyToClipboard('#p7')">ñ</button>
+
+<p id="p1">á</p>
+<p id="p2">é</p><br/>
+<p id="p3">í</p>
+<p id="p4">ó</p><br/>
+<p id="p5">ú</p>
+<p id="p6">ü</p><br/>
+<p id="p7">ñ</p>
+
+</center>
+
+<script>
+    function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+</script>
+
+</html>
+

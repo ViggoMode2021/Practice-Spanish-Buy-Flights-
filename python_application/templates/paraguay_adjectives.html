@@ -1,0 +1,95 @@
+<h5><img src="https://imgs.search.brave.com/gyW8nJ3eeyQUQflh3I2oy9IObru3gl-oQ4AQ0bkvko0/rs:fit:256:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5t/XzNSUV9ONldKamRy/SUpCY1FSMWJBQUFB/QSZwaWQ9QXBp" width="30"
+     height="30">Adjectives - Paraguay<img src="https://cdn.countryflags.com/thumbs/paraguay/flag-400.png" width="30"
+     height="30"></h5>
+
+<h2 id = "dictionary_verbs_count">Your overall score: {{ overall_score }}</h2>
+<h3 id = "overall_score_count">{{ my_dictionary_adjectives_count }} adjectives learned out of 52</h3>
+
+<left>
+    <a href="{{ url_for('words_to_study_algorithms.words_to_study_algorithms_adjectives') }}" id = "study_link">Adjectives to study 📖</td></a>
+        <a href="{{ url_for('my_dictionary_adjectives') }}" id = "study_link_2">Adjectives learned 📖</td></a>
+</left>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/argentina_places.css') }}">
+
+<head>
+    <title>Adjectives - Paraguay</title>
+        <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+    </head>
+        <link type="text/css" rel="stylesheet" href="stylesheet.css" />
+        <meta name="viewport" content="width=device-width">
+        <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/place_guess_page.css') }}">
+
+<form class="" action="{{ url_for('paraguay_adjectives.paraguay_adjectives_submit') }}" method="POST">
+    <input id = "input" type="text" class="form-control" name="random_adjective_submit" id="random_adjective_submit" placeholder="Type here" maxlength="50"
+    required=""/>
+        <input id = "button" type="submit" value="Submit" class="form-control btn btn-primary">
+    </form>
+
+<div>
+<center>
+    <h3>{{ printed_answer_paraguay_adjective }}
+</h3>
+</center>
+    </div>
+
+<div id="wrapper">
+    <div id="container">
+        <section class="open-book">
+            <article>
+                <h2 class="chapter-title">Translate:</h2>
+                <p id ='random_word'>
+                    {{ random_adjective }}
+                </p>
+        </section>
+    </div>
+</div>
+
+</form>
+
+</form>
+
+<form class="" action="{{ url_for('paraguay_adjectives.paraguay_adjectives_page') }}" method="GET">
+        <input id = "button_two" type="submit" value="Guess adjectives" class="form-control btn btn-primary">
+</form>
+
+ <form class="" action="{{ url_for('level_selector') }}" method="GET">
+        <input id = "level_selector" type="submit" value="Level selector" class="form-control btn btn-primary">
+ </form>
+
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<h4>Accent marks (copy and paste):</h4>
+
+<button onclick="copyToClipboard('#p1')">á</button>
+<button onclick="copyToClipboard('#p2')">é</button>
+    <button onclick="copyToClipboard('#p3')">í</button>
+<button onclick="copyToClipboard('#p4')">ó</button>
+    <button onclick="copyToClipboard('#p5')">ú</button>
+<button onclick="copyToClipboard('#p6')">ü</button>
+    <button onclick="copyToClipboard('#p7')">ñ</button>
+
+    <p id="p1">á</p>
+<p id="p2">é</p><br/>
+    <p id="p3">í</p>
+<p id="p4">ó</p><br/>
+    <p id="p5">ú</p>
+<p id="p6">ü</p><br/>
+    <p id="p7">ñ</p>
+
+</center>
+
+<script>
+    function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+</script>
+
+</html>

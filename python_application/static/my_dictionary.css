@@ -1,0 +1,204 @@
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+caption{
+
+color: blue;
+font-size: 30px;
+font-weight: bold;
+}
+
+/* general styling */
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 15px 25px;
+  font-size: 22px;
+  text-decoration: none;
+  margin: 20px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+.green {
+  background-color: #2ecc71;
+  box-shadow: 0px 5px 0px 0px #15B358;
+}
+
+#view_cancel_flight{
+
+color: red;
+
+font-size: 15px;
+
+}
+
+#level_selector{
+
+background-color: black;
+font-color: blue;
+font-size: 20px;
+
+}
+
+#flashcards{
+
+background-color: yellow;
+font-color: black;
+font-size: 20px;
+
+}
+
+$backgroundColor: #21252e;
+$firstCard: #ffa719;
+$secondCard: #e56660;
+$thirdCard: #b94a53;
+$fourthCard: #4b345e;
+$fifthCard: #724e94;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: $backgroundColor;
+}
+
+.card {
+  display: flex;
+  position: fixed;
+  width: 600px;
+  height: 300px;
+  transition: transform .3s ease-out;
+  box-shadow: 0 0 2px 0 #000;
+  border-radius: 8px;
+
+  @media (max-width: 700px) {
+    width: 80%;
+  }
+
+  @media (max-height: 400px) {
+    height: 40%;
+  }
+}
+
+.first {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-family: sans-serif;
+  color: $backgroundColor;
+  background-color: $firstCard;
+
+  @media (max-width: 700px) {
+    font-size: 1rem;
+  }
+}
+
+.second {
+  background-color: $secondCard;
+}
+
+.third {
+  background-color: $thirdCard;
+}
+
+.fourth {
+  background-color: $fourthCard;
+}
+
+.fifth {
+  background-color: $fifthCard;
+}

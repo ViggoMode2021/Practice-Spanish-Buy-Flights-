@@ -1,0 +1,22 @@
+To do:
+
+
+
+FRONTEND :
+
+- Fix flash messages
+
+
+BACKEND:
+
+- Add more words
+
+- Add to flights (different flight each year)
+
+- Add functionality to flights portion - Geoguessr? Points towards Duty Free store
+
+- Finish listening portion
+
+- Test out ElastiCache
+
+- Write ReadME

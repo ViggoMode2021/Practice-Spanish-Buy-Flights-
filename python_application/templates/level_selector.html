@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<head>
+	<Title>Level selector!</Title>
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon"/>
+</head>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/level_selector.css') }}">
+<meta name="viewport" content="width=device-width">
+
+<left>
+<h1>Your username:</h1><h2>{{ username }}</h2>
+
+<h1>Your overall score:</h1><h2>{{ overall_score }}</h2>
+
+  <h1>Your account was created on:<h2>{{ account_creation_date }}</h2>
+</left>
+
+  <div id="divider"></div>
+<h3>Practice Spanish, Buy Flights!</h3>
+<img src="https://img.icons8.com/color/452/globe--v1.png" alt="Italian Trulli" width="200" height="200">
+
+<h4>Please select a level to practice a topic!</h4>
+  <div id="divider"></div>
+
+<div id="buttons">
+  <a href="{{ url_for('estados_unidos_numbers.number_guess_page_range') }}" class="btn blue"><img src="https://flagicons.lipis.dev/flags/4x3/us.svg" width="30"
+     height="30">Estados Unidos (numbers)</a>
+  <a href="{{ url_for('colombia_verbs.word_guess_page_colombia') }}" class="btn green"><img src="https://flagicons.lipis.dev/flags/4x3/co.svg" width="30"
+     height="30">Colombia (verbs)</a>
+  <a href="{{ url_for('argentina_places.place_guess_page_argentina') }}" class="btn red"><img src="https://flagicons.lipis.dev/flags/4x3/ar.svg" width="30"
+     height="30">Argentina (places)</a>
+  <a href="{{ url_for('peru_speaking.peru_speaking_page') }}" class="btn purple"><img src="https://flagicons.lipis.dev/flags/4x3/pe.svg" width="30"
+     height="30">Perú (speaking)</a>
+  <a href="" class="btn orange"><img src="https://flagicons.lipis.dev/flags/4x3/es.svg" width="30"
+     height="30">España (listening - Under Construction!)</a>
+    <a href="{{ url_for('puerto_rico_time_problems.time_problems_puerto_rico') }}" class="btn blue"><img src="https://flagicons.lipis.dev/flags/4x3/pr.svg" width="30"
+     height="30">Puerto Rico (time)</a>
+  <a href="{{ url_for('paraguay_adjectives.paraguay_adjectives_page') }}" class="btn yellow"><img src="https://flagicons.lipis.dev/flags/4x3/py.svg" width="30"
+     height="30">Paraguay (adjectives)</a>
+  <a href="{{ url_for('mexico_foods_and_drinks.mexico_foods_and_drinks_page') }}" class="btn green"><img src="https://flagicons.lipis.dev/flags/4x3/mx.svg" width="30"
+     height="30">México (food and drinks)</a>
+  <a href="{{ url_for('verb_conjugation_practice.verb_conjugation_practice_page') }}" class="btn red"><img src="https://flagicons.lipis.dev/flags/4x3/ec.svg" width="30"
+     height="30">Ecuador (verb conjugation)</a>
+  <a href="{{ url_for('guatemala_greetings_and_farewells.guatemala_greetings_and_farewells_page') }}" class="btn purple"><img src="https://flagicons.lipis.dev/flags/4x3/gt.svg" width="30"
+     height="30">Guatemala (greetings and farewells)</a>
+  <a href="{{ url_for('honduras_dates.honduras_dates_page') }}" class="btn yellow"><img src="https://flagicons.lipis.dev/flags/4x3/hn.svg" width="30"
+     height="30">Honduras (dates)</a>
+  <a href="{{ url_for('costa_rica_weather.costa_rica_weather_page') }}" class="btn orange"><img src="https://flagicons.lipis.dev/flags/4x3/cr.svg" width="30"
+     height="30">Costa Rica (weather)</a>
+  <a href="{{ url_for('venezuela_conversation.venezuela_conversation_page') }}" class="btn blue"><img src="https://flagicons.lipis.dev/flags/4x3/ve.svg" width="30"
+     height="30">Venezuela (conversation)</a>
+
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <div id="divider"></div>
+
+<form action="{{ url_for('my_dictionary') }}">
+<div class="btn-group">
+  <button id = "dictionary_button" class="btn primary"><img src="https://img.icons8.com/ios-glyphs/344/dictionary.png" width="30"
+     height="30">View my dictionary</button>
+  </div>
+</form>
+
+<center>
+  <a id ="store" href="{{ url_for('flights.book_a_flight') }}" class="btn blue"><img src="https://img.icons8.com/ios/344/airplane-mode-on--v1.png" width="30"
+     height="30">Book flight with points</a>
+  <br>
+  <br>
+
+    <div id="divider"></div>
+
+  <a id ="logout" href="{{ url_for('main_page') }}" class="btn black">Logout 🔑</a>
+  <br>
+    <a id ="delete_account" href="{{ url_for('delete_account') }}" class="btn black">Delete account 🗑️</a>
+</center>
+
