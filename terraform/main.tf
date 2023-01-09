@@ -86,13 +86,3 @@ output "instance_public_ip" {
   value     = aws_instance.servernode.public_ip
   sensitive = true
 }
-
-resource "aws_lb" "alb" {
-  name               = "psbf-alb"
-  internal           = false
-  load_balancer_type = "application"
-  security_groups    = [aws_security_group.maingroup.id]
-  subnets            = ["subnet-0e29231d3158e0d30"]
-
-  enable_deletion_protection = true
-}
