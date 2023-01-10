@@ -77,7 +77,7 @@ jobs:
         with:
           sarif_file: codeguru-results.sarif.json
 
-  name: pytest
+name: pytest
 
 on:
   push:
