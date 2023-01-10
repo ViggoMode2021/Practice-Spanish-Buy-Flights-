@@ -60,40 +60,13 @@ jobs:
           python-version: '3.9'
       - name: Install software
         run: sudo apt-get install -y chromium-browser
+      - name: Install psycopg2 
+        run: sudo apt install python3-dev libpq-dev
+        run: pip install psycopg2 
       - name: Install the necessary packages
         run: pip install requests webdriver-manager selenium pytest
       - name: Run the PytTest script
         run: pytest -rA
-  
-  
-  test-code:
-    runs-on: ubuntu-latest
-    steps:
-      # Step 1: Checkout the repository and provide your AWS credentials
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1  # Region to access CodeGuru 
-
-      # Step 2: Add CodeGuru Reviewer Action
-      - name: CodeGuru Reviewer
-        uses: aws-actions/codeguru-reviewer@v1.1
-        with:
-          s3_bucket: codeguru-reviewer-viggo-mode-2023  # S3 Bucket with "codeguru-reviewer-*" prefix
- 
-# Step 3: Upload results into GitHub
-      - name: Upload review result
-        if: ${{ github.event_name != 'push' }}
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: codeguru-results.sarif.json
 
   deploy-app:
     runs-on: ubuntu-latest
