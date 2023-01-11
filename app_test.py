@@ -85,6 +85,8 @@ def setup(request):
     yield request.cls.driver
     request.cls.driver.close()
 
+browser = Browser()
+
 def test_text_present():
     browser = Browser()
     url = 'https://practicespanishbuyflights.com/'
