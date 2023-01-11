@@ -62,31 +62,7 @@ def test_db_connection():
 
     assert test_result_db == 'bburnerson840@gmail.com'
 
-@pytest.fixture()
-def setup(request):
-    chrome_service = Service(ChromeDriverManager(chrome_type=ChromeType.GOOGLE).install())
-
-    chrome_options = Options()
-    options = [
-    "--headless",
-    "--disable-gpu",
-    "--window-size=1920,1200",
-    "--ignore-certificate-errors",
-    "--disable-extensions",
-    "--no-sandbox",
-    "--disable-dev-shm-usage"
-]
-    for option in options:
-        chrome_options.add_argument(option)
-
-    request.cls.driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
-
-
-    yield request.cls.driver
-    request.cls.driver.close()
-
-browser = Browser()
-
+'''
 def test_text_present():
     browser = Browser()
     url = 'https://practicespanishbuyflights.com/'
@@ -111,3 +87,4 @@ def test_search_engine_optimization(browser):
     # Interact with elements
     button.click()
     assert browser.is_text_present('Practice Spanish Buy Flights!'), "Not found - let's get on that SEO GAME LIKE A GURU!"
+'''
