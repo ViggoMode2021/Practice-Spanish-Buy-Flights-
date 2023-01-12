@@ -90,7 +90,7 @@ def test_db_connection():
 
 def test_text_present():
     driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
-    url = 'https://practicespanishbuyflights.com/'
+    url = 'http://localhost:8080/'
     driver.get(url)
     driver.getPageSource().contains("Practice Spanish, Buy Flights") 
     driver.quit()
