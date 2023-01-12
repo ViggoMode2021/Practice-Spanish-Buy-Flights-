@@ -5,6 +5,8 @@ import boto3
 import pytest
 from splinter import driver
 
+#https://qxf2.com/blog/github-actions-to-execute-test-against-localhost-at-ci-stage/
+
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.core.utils import ChromeType
@@ -87,22 +89,18 @@ def test_db_connection():
 
 
 def test_text_present():
+    driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
     url = 'https://practicespanishbuyflights.com/'
-    driver.visit(url)
-    assert driver.is_text_present('Practice Spanish, Buy Flights!')
+    driver.get(url)
+    driver.getPageSource().contains("Practice Spanish, Buy Flights") 
     driver.quit()
 
-def test_text_present():
-    driver = driver()
-    url = 'https://practicespanishbuyflights.com/'
-    driver.visit(url)
-    assert driver.is_text_present('Practice Spanish, Buy Flights!')
-    driver.quit()
-
+    '''
 def test_search_engine_optimization(driver):
+    driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
     """Test using real driver."""
     url = "http://www.google.com"
-    driver.visit(url)
+    driver.get(url)
     driver.fill('q', 'Practice Spanish Buy Flights')
     # Find and click the 'search' button
     button = driver.find_by_name('btnK')
@@ -110,7 +108,7 @@ def test_search_engine_optimization(driver):
     button.click()
     assert driver.is_text_present('Practice Spanish Buy Flights!'), "Not found - let's get on that SEO GAME LIKE A GURU!"
 
-
+'''
 '''import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options

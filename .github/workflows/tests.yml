@@ -1,0 +1,40 @@
+name: Create GitHub Action
+ 
+on:
+  push:
+    branches:
+      - main
+ 
+jobs:
+  pre_deploy_tests:
+ 
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        python-version: [3.11.1]
+ 
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        set -ex
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo apt install ./google-chrome-stable_current_amd64.deb        
+        python -m pip install --upgrade pip
+        pip install -r python_application/requirements.txt
+        pip install msedge-selenium-tools
+    - uses: nanasess/setup-chromedriver@v1
+    - run: chromedriver --url-base=/wd/hub &        
+    - name: Run local server
+      run: |
+        python python_application/application.py &
+        sleep 5
+        cd ..
+        pip install flask boto3 psycopg2
+        python -m pytest -U http://localhost:80/ --browser headless-chrome
