@@ -36,5 +36,5 @@ jobs:
         python python_application/application.py &
         sleep 5
         cd ..
-        pip install flask boto3 psycopg2
-        python -m pytest http://localhost:80/
+        pip install flask boto3 psycopg2 selenium msedge-selenium-tools pytest
+        python -m pytest -U http://localhost:port/ --browser headless-chrome
