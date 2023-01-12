@@ -27,6 +27,7 @@ jobs:
         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         sudo apt install ./google-chrome-stable_current_amd64.deb        
         python -m pip install --upgrade pip
+        apt-get -y install libpq-dev gcc
         pip install -r python_application/requirements.txt
         pip install msedge-selenium-tools
     - uses: nanasess/setup-chromedriver@v1
