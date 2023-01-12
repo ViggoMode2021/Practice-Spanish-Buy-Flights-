@@ -68,6 +68,7 @@ jobs:
       - name: Install all necessary packages
         run: pip install pytest psycopg2 webdriver-manager selenium
       - name: Run the scraping script
+        run: pytest
 
   deploy-app:
     runs-on: ubuntu-latest
