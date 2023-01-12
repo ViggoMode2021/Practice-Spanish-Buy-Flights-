@@ -37,4 +37,4 @@ jobs:
         sleep 5
         cd ..
         pip install flask boto3 psycopg2
-        python -m pytest -U http://localhost:80/ --browser headless-chrome
+        python -m pytest -U http://localhost:80/
