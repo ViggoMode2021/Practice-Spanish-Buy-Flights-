@@ -3,7 +3,30 @@ import psycopg2.extras
 import os
 import boto3
 import pytest
-from splinter import Browser
+from splinter import driver
+
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.core.utils import ChromeType
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+
+chrome_service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+
+chrome_options = Options()
+options = [
+    "--headless",
+    "--disable-gpu",
+    "--window-size=1920,1200",
+    "--ignore-certificate-errors",
+    "--disable-extensions",
+    "--no-sandbox",
+    "--disable-dev-shm-usage"
+]
+for option in options:
+    chrome_options.add_argument(option)
+
+driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
 #from python_application.application import sign_up
 #import python_application.application as app
@@ -62,34 +85,33 @@ def test_db_connection():
 
     assert test_result_db == 'bburnerson840@gmail.com'
 
-'''
-def test_text_present():
-    browser = Browser()
-    url = 'https://practicespanishbuyflights.com/'
-    browser.visit(url)
-    assert browser.is_text_present('Practice Spanish, Buy Flights!')
-    browser.quit()
 
 def test_text_present():
-    browser = Browser()
     url = 'https://practicespanishbuyflights.com/'
-    browser.visit(url)
-    assert browser.is_text_present('Practice Spanish, Buy Flights!')
-    browser.quit()
+    driver.visit(url)
+    assert driver.is_text_present('Practice Spanish, Buy Flights!')
+    driver.quit()
 
-def test_search_engine_optimization(browser):
-    """Test using real browser."""
+def test_text_present():
+    driver = driver()
+    url = 'https://practicespanishbuyflights.com/'
+    driver.visit(url)
+    assert driver.is_text_present('Practice Spanish, Buy Flights!')
+    driver.quit()
+
+def test_search_engine_optimization(driver):
+    """Test using real driver."""
     url = "http://www.google.com"
-    browser.visit(url)
-    browser.fill('q', 'Practice Spanish Buy Flights')
+    driver.visit(url)
+    driver.fill('q', 'Practice Spanish Buy Flights')
     # Find and click the 'search' button
-    button = browser.find_by_name('btnK')
+    button = driver.find_by_name('btnK')
     # Interact with elements
     button.click()
-    assert browser.is_text_present('Practice Spanish Buy Flights!'), "Not found - let's get on that SEO GAME LIKE A GURU!"
-'''
+    assert driver.is_text_present('Practice Spanish Buy Flights!'), "Not found - let's get on that SEO GAME LIKE A GURU!"
 
-import pytest
+
+'''import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
@@ -129,4 +151,4 @@ class Test_URL_Chrome(Basic_Chrome_Test):
             self.driver.get("https://www.lambdatest.com/")
             print(self.driver.title)
  
-            sleep(5)
+            sleep(5)'''

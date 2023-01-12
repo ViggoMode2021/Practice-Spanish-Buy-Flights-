@@ -48,29 +48,26 @@ jobs:
           echo "::set-output name=instance_public_ip::$(terraform output instance_public_ip)"
         working-directory: ./terraform
 
-  test01:
+  scrape:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
         uses: actions/checkout@v2
-     #Setup Python   
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
-      - name: Install software
-        run: sudo apt-get install -y chromium-browser
-      - name: Install psycopg2 
-        run: |-
-              sudo apt install python3-dev libpq-dev
-              pip install psycopg2
-              pip install boto3
-              pip install splinter
-              pip install pytest 
-      - name: Install the necessary packages
-        run: pip install requests webdriver-manager selenium pytest
-      - name: Run the PytTest script
-        run: pytest -rA
+      - name: Installed package list
+        run: apt list --installed
+      - name: Remove Chrome
+        run: sudo apt purge google-chrome-stable
+      - name: Remove default Chromium
+        run: sudo apt purge chromium-browser
+      - name: Install a new Chromium
+        run: sudo apt install -y chromium-browser
+      - name: Install all necessary packages
+        run: pip install pytest psycopg2 webdriver-manager selenium
+      - name: Run the scraping script
 
   deploy-app:
     runs-on: ubuntu-latest
