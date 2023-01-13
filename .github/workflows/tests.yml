@@ -47,6 +47,7 @@ jobs:
         sleep 5
         cd ..
         pip install -U selenium flask boto3 psycopg2 msedge-selenium-tools pytest
+        sudo $(aws ecr get-login --no-include-email --region us-east-1);
         sudo docker pull 583715230104.dkr.ecr.us-east-1.amazonaws.com/example-python-app:e543eacdf400a45786614d07fb8b9bc1baf17079:latest
         sudo docker run 583715230104.dkr.ecr.us-east-1.amazonaws.com/example-python-app:e543eacdf400a45786614d07fb8b9bc1baf17079:latest
         pytest
