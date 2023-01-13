@@ -3,7 +3,7 @@ from flask import request, flash, session, redirect, url_for
 import psycopg2
 import psycopg2.extras
 import os
-from num2words import num2words
+#from num2words import num2words
 import datetime
 import pytz
 import boto3
