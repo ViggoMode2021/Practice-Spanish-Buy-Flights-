@@ -37,6 +37,9 @@ jobs:
         pip install -r python_application/requirements.txt
         pip install msedge-selenium-tools
     - uses: nanasess/setup-chromedriver@v1
+    - name: Login to AWS ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
     - run: chromedriver --url-base=/wd/hub &        
     - name: Run local server
       run: |
@@ -45,6 +48,6 @@ jobs:
         cd ..
         pip install -U selenium flask boto3 psycopg2 msedge-selenium-tools pytest
         sudo $(aws ecr get-login --no-include-email --region us-east-1);
-        sudo docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
-        sudo docker run -d -p 80:80 $REGISTRY/$REPOSITORY:$IMAGE_TAG
+        sudo docker pull 583715230104.dkr.ecr.us-east-1.amazonaws.com/example-python-app:e543eacdf400a45786614d07fb8b9bc1baf17079:latest
+        sudo docker run 583715230104.dkr.ecr.us-east-1.amazonaws.com/example-python-app:e543eacdf400a45786614d07fb8b9bc1baf17079:latest
         pytest
