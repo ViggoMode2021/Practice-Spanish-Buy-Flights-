@@ -36,4 +36,4 @@ jobs:
         sleep 5
         cd ..
         pip install -U selenium flask boto3 psycopg2 msedge-selenium-tools pytest
-        python -m pytest application:80
+        python -m pytest python_application/application:80
