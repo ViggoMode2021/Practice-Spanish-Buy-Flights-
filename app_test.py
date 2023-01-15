@@ -49,8 +49,24 @@ class Test_URL(BasicTest):
             self.driver.find_element(By.ID, "submit_button").click()
             home_page = self.driver.find_element(By.TAG_NAME, ('h4'))
             sleep(5)
-            assert home_page.text == "Please select a level to practice a topic!" 
+            assert home_page.text == "Please select a level to practice a topic!"
+            sleep(2)
+            self.driver.find_element(By.ID, ("logout")).click()
+            sleep(2)
+            find_title = self.driver.find_element(By.TAG_NAME, "h6") 
+            assert find_title.text == "Practice Spanish, Buy Flights!"
 
+#Fixture for Chrome
+@pytest.fixture(scope="class")
+def chrome_driver_init(request):
+    chrome_driver = webdriver.Chrome()
+    request.cls.driver = chrome_driver
+    chrome_driver.get("https://practicespanishbuyflights.com/")
+    load_dotenv(find_dotenv())
+    dotenv_path = os.path.join(os.path.dirname(__file__), ".env-pytest")
+    load_dotenv(dotenv_path)
+    yield
+    chrome_driver.close()
 
 
 
