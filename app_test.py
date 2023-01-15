@@ -1,6 +1,7 @@
 import psycopg2
 import psycopg2.extras
 import os
+from dotenv import load_dotenv, find_dotenv
 import boto3
 import pytest
 from splinter import driver
@@ -16,41 +17,15 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
-'''def test_db_connection():
-    conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
-    cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-
-    test_query = cursor.execute("SELECT username FROM spanish_users WHERE username = 'bburnerson840@gmail.com';")
-
-    test_result_db = cursor.fetchone()[0]
-
-    assert test_result_db == 'bburnerson840@gmail.com'''
-'''
-@pytest.fixture
-def first_entry():
-    return "a"
-
-
-# Arrange
-@pytest.fixture
-def order(first_entry):
-    return [first_entry]
-
-
-def test_string(order):
-    # Act
-    order.append("b")
-
-    # Assert
-    assert order == ["a", "b"]
-'''
 #Fixture for Chrome
 @pytest.fixture(scope="class")
 def chrome_driver_init(request):
     chrome_driver = webdriver.Chrome()
     request.cls.driver = chrome_driver
     chrome_driver.get("https://practicespanishbuyflights.com/")
-    print(chrome_driver.title + "this is a test")
+    load_dotenv(find_dotenv())
+    dotenv_path = os.path.join(os.path.dirname(__file__), ".env-pytest")
+    load_dotenv(dotenv_path)
     yield
     chrome_driver.close()
 
@@ -64,8 +39,19 @@ class Test_URL(BasicTest):
             sleep(5)
         
         def test_login_boxes_and_button(self):
-            find_username = self.driver.find_element(By.NAME, ("username")).send_keys("test@gmail.com")
-            self.driver.find_element_by_id("addbutton").click()
+            username = self.driver.find_element(By.NAME, ('username'))
+            test_username = os.getenv("test_username")
+            username.send_keys(test_username)
+            sleep(2)
+            test_password = os.getenv("test_password")
+            self.driver.find_element(By.NAME, ("password")).send_keys(test_password)
+            sleep(2)
+            self.driver.find_element(By.ID, "submit_button").click()
+            home_page = self.driver.find_element(By.TAG_NAME, ('h4'))
+            sleep(5)
+            assert home_page.text == "Please select a level to practice a topic!" 
+
+
 
 
         
