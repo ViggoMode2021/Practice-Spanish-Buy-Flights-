@@ -4,9 +4,9 @@ import os
 import boto3
 import pytest
 from splinter import driver
-from flask import Flask
 from dotenv import load_dotenv, find_dotenv
-
+import pytest
+from time import sleep
 #https://qxf2.com/blog/github-actions-to-execute-test-against-localhost-at-ci-stage/
 
 from selenium import webdriver
@@ -16,85 +16,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
-chrome_options = Options()
-options = [
-    "--headless",
-    "--disable-gpu",
-    "--window-size=1920,1200",
-    "--ignore-certificate-errors",
-    "--disable-extensions",
-    "--no-sandbox",
-    "--disable-dev-shm-usage"
-]
-for option in options:
-    chrome_options.add_argument(option)
-
-
-
-'''def create_app(application):
-    app = Flask(__name__)
-    app.config.from_pyfile(config_filename)
-
-    app.register_blueprint(admin)
-    app.register_blueprint(frontend)
-
-    return app'''
-
-
-
-load_dotenv(find_dotenv())
-
-dotenv_path = os.path.join(os.path.dirname(__file__), ".env-practice-spanish-buy-flights")
-load_dotenv(dotenv_path)
-
-AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-
-AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-
-DB_NAME = os.getenv("DB_NAME")
-
-secret_name_COGNITO_USER_CLIENT_ID = "arn:aws:secretsmanager:us-east-1:583715230104:secret:Cognito_User_Client_ID-ft88TW"
-region_name = "us-east-1"
-
-# Create a Secrets Manager client
-client = boto3.client('secretsmanager', region_name='us-east-1')
-
-get_secret_value_response = client.get_secret_value(
-            SecretId=secret_name_COGNITO_USER_CLIENT_ID
-        )
-
-COGNITO_USER_CLIENT_ID = get_secret_value_response['SecretString']
-
-secret_name_DATABASE_HOST = "arn:aws:secretsmanager:us-east-1:583715230104:secret:DB_ENDPOINT-OgYTNa"
-
-get_secret_value_response_2 = client.get_secret_value(
-    SecretId=secret_name_DATABASE_HOST
-)
-
-DB_HOST = get_secret_value_response_2['SecretString']
-
-secret_name_DATABASE_PASS = "arn:aws:secretsmanager:us-east-1:583715230104:secret:DB_PASS-hqj9lH"
-
-get_secret_value_response_3 = client.get_secret_value(
-    SecretId=secret_name_DATABASE_PASS
-)
-
-DB_PASS = get_secret_value_response_3['SecretString']
-
-secret_name_DB_USER = "arn:aws:secretsmanager:us-east-1:583715230104:secret:DB_USER-lyKZpQ"
-
-get_secret_value_response_4 = client.get_secret_value(
-    SecretId=secret_name_DB_USER
-)
-
-DB_USER = get_secret_value_response_4['SecretString']
-
-secret_name_SECRET_KEY = "arn:aws:secretsmanager:us-east-1:583715230104:secret:SECRET_KEY-C502Wx"
-
-get_secret_value_response_5 = client.get_secret_value(
-    SecretId=secret_name_SECRET_KEY
-)
-def test_db_connection():
+'''def test_db_connection():
     conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
     cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
@@ -102,68 +24,48 @@ def test_db_connection():
 
     test_result_db = cursor.fetchone()[0]
 
-    assert test_result_db == 'bburnerson840@gmail.com'
-
-def test_text_present():
-    driver = webdriver.Chrome(ChromeDriverManager().install())
-    url = 'https://practicespanishbuyflights.com'
-    driver.get(url)
-    find = driver.find_element(By.TAG_NAME, "h6") 
-    assert find.text == "Practice Spanish, Buy Flights!"
-    driver.quit()
-
-    '''
-def test_search_engine_optimization(driver):
-    driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
-    """Test using real driver."""
-    url = "http://www.google.com"
-    driver.get(url)
-    driver.fill('q', 'Practice Spanish Buy Flights')
-    # Find and click the 'search' button
-    button = driver.find_by_name('btnK')
-    # Interact with elements
-    button.click()
-    assert driver.is_text_present('Practice Spanish Buy Flights!'), "Not found - let's get on that SEO GAME LIKE A GURU!"
-
+    assert test_result_db == 'bburnerson840@gmail.com'''
 '''
-'''import pytest
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.keys import Keys
-from time import sleep
- 
-#Fixture for Firefox
-@pytest.fixture(scope="class")
-def driver_init(request):
-    ff_driver = webdriver.Firefox()
-    request.cls.driver = ff_driver
-    yield
-    ff_driver.close()
- 
+@pytest.fixture
+def first_entry():
+    return "a"
+
+
+# Arrange
+@pytest.fixture
+def order(first_entry):
+    return [first_entry]
+
+
+def test_string(order):
+    # Act
+    order.append("b")
+
+    # Assert
+    assert order == ["a", "b"]
+'''
 #Fixture for Chrome
 @pytest.fixture(scope="class")
 def chrome_driver_init(request):
     chrome_driver = webdriver.Chrome()
     request.cls.driver = chrome_driver
+    chrome_driver.get("https://practicespanishbuyflights.com/")
+    print(chrome_driver.title + "this is a test")
     yield
     chrome_driver.close()
- 
-@pytest.mark.usefixtures("driver_init")
+
+@pytest.mark.usefixtures("chrome_driver_init")
 class BasicTest:
     pass
 class Test_URL(BasicTest):
         def test_open_url(self):
-            self.driver.get("https://www.lambdatest.com/")
-            print(self.driver.title)
- 
+            find_title = self.driver.find_element(By.TAG_NAME, "h6") 
+            assert find_title.text == "Practice Spanish, Buy Flights!"
             sleep(5)
- 
-@pytest.mark.usefixtures("chrome_driver_init")
-class Basic_Chrome_Test:
-    pass
-class Test_URL_Chrome(Basic_Chrome_Test):
-        def test_open_url(self):
-            self.driver.get("https://www.lambdatest.com/")
-            print(self.driver.title)
- 
-            sleep(5)'''
+        
+        def test_login_boxes_and_button(self):
+            find_username = self.driver.find_element(By.NAME, ("username")).send_keys("test@gmail.com")
+            self.driver.find_element_by_id("addbutton").click()
+
+
+        
