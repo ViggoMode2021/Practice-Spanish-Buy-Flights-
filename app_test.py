@@ -58,16 +58,30 @@ class Test_URL(BasicTest):
 
 #Fixture for Chrome
 @pytest.fixture(scope="class")
-def chrome_driver_init(request):
+def site_login(request):
     chrome_driver = webdriver.Chrome()
     request.cls.driver = chrome_driver
     chrome_driver.get("https://practicespanishbuyflights.com/")
     load_dotenv(find_dotenv())
     dotenv_path = os.path.join(os.path.dirname(__file__), ".env-pytest")
     load_dotenv(dotenv_path)
+    username = chrome_driver.find_element(By.NAME, ('username'))
+    test_username = os.getenv("test_username")
+    username.send_keys(test_username)
+    sleep(2)
+    test_password = os.getenv("test_password")
+    chrome_driver.find_element(By.NAME, ("password")).send_keys(test_password)
+    sleep(2)
+    chrome_driver.find_element(By.ID, "submit_button").click()
     yield
     chrome_driver.close()
 
-
+@pytest.mark.usefixtures("site_login")
+class Test_Levels():
+        def test_open_colombia_verbs(self):
+            self.driver.find_element(By.ID, "colombia_verbs").click()
+            find_colombia_title = self.driver.find_element(By.TAG_NAME, ('h5'))
+            assert find_colombia_title.text == "Verbs - Colombia"
+            sleep(5)
 
         
