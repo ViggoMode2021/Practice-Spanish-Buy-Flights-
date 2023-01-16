@@ -77,28 +77,28 @@ class Test_Levels():
             find_paraguay_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_paraguay_title.text == "Adjectives - Paraguay"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(3)
+            sleep(10)
 
         def test_open_mexico_foods_and_drinks(self):
             self.driver.find_element(By.ID, "mexico_foods_and_drinks").click()
             find_mexico_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_mexico_title.text == "Foods + Drinks - México"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(3)
+            sleep(6)
 
         def test_open_ecuador_verb_conjugation(self):
             self.driver.find_element(By.ID, "ecuador_verb_conjugation").click()
             find_ecuador_title = self.driver.find_element(By.TAG_NAME, ('h1'))
             assert find_ecuador_title.text == "Verb conjugation practice tense selector"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(3)
+            sleep(6)
         
         def test_open_guatemala_greetings_and_farewells(self):
             self.driver.find_element(By.ID, "guatemala_greetings_and_farewells").click()
             find_guatemala_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_guatemala_title.text == "Guatemala - Greetings and farewells"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(3)
+            sleep(6)
 
         '''def test_open_honduras_dates(self):
             self.driver.find_element(By.ID, "honduras_dates").click()
