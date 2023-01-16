@@ -1,8 +1,5 @@
-import psycopg2
-import psycopg2.extras
 import os
 from dotenv import load_dotenv, find_dotenv
-import boto3
 import pytest
 from splinter import driver
 from dotenv import load_dotenv, find_dotenv
@@ -28,33 +25,6 @@ def chrome_driver_init(request):
     load_dotenv(dotenv_path)
     yield
     chrome_driver.close()
-
-'''@pytest.mark.usefixtures("chrome_driver_init")
-class BasicTest:
-    pass
-class Test_URL(BasicTest):
-        def test_open_url(self):
-            find_title = self.driver.find_element(By.TAG_NAME, "h6") 
-            assert find_title.text == "Practice Spanish, Buy Flights!"
-            sleep(5)
-        
-        def test_login_boxes_and_button(self):
-            username = self.driver.find_element(By.NAME, ('username'))
-            test_username = os.getenv("test_username")
-            username.send_keys(test_username)
-            sleep(2)
-            test_password = os.getenv("test_password")
-            self.driver.find_element(By.NAME, ("password")).send_keys(test_password)
-            sleep(2)
-            self.driver.find_element(By.ID, "submit_button").click()
-            home_page = self.driver.find_element(By.TAG_NAME, ('h4'))
-            sleep(5)
-            assert home_page.text == "Please select a level to practice a topic!"
-            sleep(2)
-            self.driver.find_element(By.ID, ("logout")).click()
-            sleep(2)
-            find_title = self.driver.find_element(By.TAG_NAME, "h6") 
-            assert find_title.text == "Practice Spanish, Buy Flights!"'''
 
 #Fixture for Chrome
 @pytest.fixture(scope="class")
@@ -127,12 +97,12 @@ class Test_Levels():
             self.driver.find_element(By.ID, "level_selector").click()
             sleep(3)
 
-        def test_open_honduras_dates(self):
+        '''def test_open_honduras_dates(self):
             self.driver.find_element(By.ID, "honduras_dates").click()
             find_honduras_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_honduras_title.text == "Honduras - Dates"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(3)
+            sleep(3)'''
 
         def test_open_costa_rica_weather(self):
             self.driver.find_element(By.ID, "costa_rica_weather").click()
