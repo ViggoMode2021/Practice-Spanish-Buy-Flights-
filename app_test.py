@@ -15,6 +15,7 @@ from selenium.webdriver.chrome.options import Options
 
 options = Options()
 options.add_argument('--no-sandbox')
+options.add_argument('--headless')
 
 #Fixture for Chrome
 @pytest.fixture(scope="class")
