@@ -113,4 +113,4 @@ jobs:
 
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional, disables headless mode
       - name: Run tests
-        run: pytest test functional_tests.tests.test_selenium.test_exams -v 2
+        run: pytest -v
