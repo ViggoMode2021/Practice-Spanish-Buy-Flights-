@@ -111,6 +111,8 @@ jobs:
 
           chromedriver --url-base=/wd/hub &
 
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional, disables headless mode
+
           chromeOptions: args: ["--headless", "--disable-gpu", "--window-size=1920,1080", "--no-sandbox"]  binary: "/usr/bin/google-chrome-stable"
       - name: Run tests
         run: pytest -v
