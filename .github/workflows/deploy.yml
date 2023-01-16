@@ -88,9 +88,9 @@ jobs:
             sudo docker run -d -p 80:80 $REGISTRY/$REPOSITORY:$IMAGE_TAG
   Run-Python-Tests:
     runs-on: ubuntu-latest
-    services: null
-    selenium:
-      image: selenium/standalone-chrome
+    services: 
+      selenium:
+        image: selenium/standalone-chrome
     steps:
       - uses: actions/checkout@v1
       - name: Set up Python 3.7
