@@ -118,4 +118,4 @@ class Test_Levels():
             self.driver.find_element(By.ID, "level_selector").click()
             sleep(3)
 
-        
+#sudo docker system prune -a
