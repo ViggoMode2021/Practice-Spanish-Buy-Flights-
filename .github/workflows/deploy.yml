@@ -87,11 +87,9 @@ jobs:
             sudo docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
             sudo docker run -d -p 80:80 $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
-jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
