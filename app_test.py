@@ -8,10 +8,6 @@ from time import sleep
 #https://qxf2.com/blog/github-actions-to-execute-test-against-localhost-at-ci-stage/
 
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.core.utils import ChromeType
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
 #Fixture for Chrome
