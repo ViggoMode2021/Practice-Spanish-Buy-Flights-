@@ -63,7 +63,7 @@ def honduras_dates_page():
 
         overall_score = cursor.fetchone()[0]
 
-        word_url = "https://raw.githubusercontent.com/ViggoMode2021/Spanish_game_website_resources/main/english_places.txt"
+        word_url = "https://raw.githubusercontent.com/ViggoMode2021/Practice_Spanish_Buy_Flights_Resources/main/english_dates"
         response = urllib.request.urlopen(word_url)
         long_txt = response.read().decode()
 

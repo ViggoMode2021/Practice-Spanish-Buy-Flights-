@@ -8,14 +8,13 @@ from time import sleep
 #https://qxf2.com/blog/github-actions-to-execute-test-against-localhost-at-ci-stage/
 # chromeOptions: args: ["--headless", "--disable-gpu", "--window-size=1920,1080", "--no-sandbox", "--allowed-ips=108.0.5359.71"]  binary: "/usr/bin/google-chrome-stable"
 
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
 options = Options()
 options.add_argument('--no-sandbox')
-options.add_argument('--headless')
+#options.add_argument('--headless')
 
 #Fixture for Chrome
 @pytest.fixture(scope="class")
@@ -103,7 +102,7 @@ class Test_Levels():
         '''def test_open_honduras_dates(self):
             self.driver.find_element(By.ID, "honduras_dates").click()
             find_honduras_title = self.driver.find_element(By.TAG_NAME, ('h5'))
-            assert find_honduras_title.text == "Honduras - Dates"
+            assert find_honduras_title.text == "Honduras - dates"
             self.driver.find_element(By.ID, "level_selector").click()
             sleep(3)'''
 
