@@ -5,7 +5,7 @@ from splinter import driver
 from dotenv import load_dotenv, find_dotenv
 import pytest
 from time import sleep
-#https://qxf2.com/blog/github-actions-to-execute-test-against-localhost-at-ci-stage/
+#https://qxf2.com/blog/github-actions-to-execute-test-against-localhost-at-ci-stage/ # test file
 # chromeOptions: args: ["--headless", "--disable-gpu", "--window-size=1920,1080", "--no-sandbox", "--allowed-ips=108.0.5359.71"]  binary: "/usr/bin/google-chrome-stable"
 
 from selenium import webdriver
@@ -14,7 +14,7 @@ from selenium.webdriver.chrome.options import Options
 
 options = Options()
 options.add_argument('--no-sandbox')
-options.add_argument('--headless')
+options.add_argument('--headless') 
 
 #Fixture for Chrome
 @pytest.fixture(scope="class")
