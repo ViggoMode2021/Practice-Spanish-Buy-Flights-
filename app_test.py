@@ -114,6 +114,6 @@ class Test_Levels():
             find_venezuela_title = self.driver.find_element(By.TAG_NAME, ('h1'))
             assert find_venezuela_title.text == "Ask a question to Señor Lex"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(9)
+            sleep(11)
 
 #sudo docker system prune -a
