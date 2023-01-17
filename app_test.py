@@ -45,7 +45,7 @@ def site_login(request):
     chrome_driver.find_element(By.ID, "submit_button").click()
     yield
     chrome_driver.close()
-    
+
 @pytest.mark.usefixtures("site_login")
 class Test_Levels():
         def test_open_colombia_verbs(self):
@@ -107,13 +107,13 @@ class Test_Levels():
             find_costa_rica_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_costa_rica_title.text == "Costa Rica - weather"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(6)
+            sleep(9)
 
         def test_open_venezuela_conversation(self):
             self.driver.find_element(By.ID, "venezuela_conversation").click()
             find_venezuela_title = self.driver.find_element(By.TAG_NAME, ('h1'))
             assert find_venezuela_title.text == "Ask a question to Señor Lex"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(6)
+            sleep(9)
 
 #sudo docker system prune -a
