@@ -96,12 +96,7 @@ class Test_Levels():
             assert find_guatemala_title.text == "Guatemala - Greetings and farewells"
             self.driver.find_element(By.ID, "level_selector").click()
             sleep(6)
-        '''def test_open_honduras_dates(self):
-            self.driver.find_element(By.ID, "honduras_dates").click()
-            find_honduras_title = self.driver.find_element(By.TAG_NAME, ('h5'))
-            assert find_honduras_title.text == "Honduras - Dates"
-            self.driver.find_element(By.ID, "level_selector").click()
-            sleep(3)'''
+
         def test_open_costa_rica_weather(self):
             self.driver.find_element(By.ID, "costa_rica_weather").click()
             find_costa_rica_title = self.driver.find_element(By.TAG_NAME, ('h5'))
@@ -116,4 +111,5 @@ class Test_Levels():
             self.driver.find_element(By.ID, "level_selector").click()
             sleep(12)
 
+# if no space:
 #sudo docker system prune -a
