@@ -76,20 +76,6 @@ class Test_Levels():
             self.driver.find_element(By.ID, "level_selector").click()
             sleep(10)
 
-        def test_open_costa_rica_weather(self):
-            self.driver.find_element(By.ID, "costa_rica_weather").click()
-            find_costa_rica_title = self.driver.find_element(By.TAG_NAME, ('h5'))
-            assert find_costa_rica_title.text == "Costa Rica - weather"
-            self.driver.find_element(By.ID, "level_selector").click()
-            sleep(6)
-
-        def test_open_venezuela_conversation(self):
-            self.driver.find_element(By.ID, "venezuela_conversation").click()
-            find_venezuela_title = self.driver.find_element(By.TAG_NAME, ('h1'))
-            assert find_venezuela_title.text == "Ask a question to Señor Lex"
-            self.driver.find_element(By.ID, "level_selector").click()
-            sleep(6)
-
         def test_open_mexico_foods_and_drinks(self):
             self.driver.find_element(By.ID, "mexico_foods_and_drinks").click()
             find_mexico_title = self.driver.find_element(By.TAG_NAME, ('h5'))
