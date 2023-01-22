@@ -53,28 +53,28 @@ class Test_Levels():
             find_colombia_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_colombia_title.text == "Verbs - Colombia"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(3)
+            sleep(6)
 
         def test_open_argentina_places(self):
             self.driver.find_element(By.ID, "argentina_places").click()
             find_argentina_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_argentina_title.text == "Places - Argentina"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(3)
+            sleep(6)
 
         def test_open_peru_speaking(self):
             self.driver.find_element(By.ID, "peru_speaking").click()
             find_peru_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_peru_title.text == "Speaking Page - Perú"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(3)
+            sleep(6)
 
         def test_open_paraguay_adjectives(self):
             self.driver.find_element(By.ID, "paraguay_adjectives").click()
             find_paraguay_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_paraguay_title.text == "Adjectives - Paraguay"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(10)
+            sleep(6)
 
         def test_open_mexico_foods_and_drinks(self):
             self.driver.find_element(By.ID, "mexico_foods_and_drinks").click()
