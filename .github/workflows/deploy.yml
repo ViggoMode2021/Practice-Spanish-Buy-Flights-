@@ -86,6 +86,10 @@ jobs:
             sudo $(aws ecr get-login --no-include-email --region us-east-1);
             sudo docker pull $REGISTRY/$REPOSITORY:$IMAGE_TAG
             sudo docker run -d -p 80:80 $REGISTRY/$REPOSITORY:$IMAGE_TAG
+            rm server-stats.txt
+            df | grep /dev/root > server-stats.txt
+            sudo docker ps -a >> server-stats.txt
+
   Run-Python-Tests:
     runs-on: ubuntu-latest
     services: 
