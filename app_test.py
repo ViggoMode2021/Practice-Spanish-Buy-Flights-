@@ -53,49 +53,49 @@ class Test_Levels():
             find_colombia_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_colombia_title.text == "Verbs - Colombia"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(6)
+            sleep(3)
 
         def test_open_argentina_places(self):
             self.driver.find_element(By.ID, "argentina_places").click()
             find_argentina_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_argentina_title.text == "Places - Argentina"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(6)
+            sleep(3)
 
         def test_open_peru_speaking(self):
             self.driver.find_element(By.ID, "peru_speaking").click()
             find_peru_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_peru_title.text == "Speaking Page - Perú"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(6)
+            sleep(3)
 
         def test_open_paraguay_adjectives(self):
             self.driver.find_element(By.ID, "paraguay_adjectives").click()
             find_paraguay_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_paraguay_title.text == "Adjectives - Paraguay"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(6)
+            sleep(3)
 
         def test_open_mexico_foods_and_drinks(self):
             self.driver.find_element(By.ID, "mexico_foods_and_drinks").click()
             find_mexico_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_mexico_title.text == "Foods + Drinks - México"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(6)
+            sleep(3)
             
         def test_open_ecuador_verb_conjugation(self):
             self.driver.find_element(By.ID, "ecuador_verb_conjugation").click()
             find_ecuador_title = self.driver.find_element(By.TAG_NAME, ('h1'))
             assert find_ecuador_title.text == "Verb conjugation practice tense selector"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(6)
+            sleep(3)
         
         def test_open_guatemala_greetings_and_farewells(self):
             self.driver.find_element(By.ID, "guatemala_greetings_and_farewells").click()
             find_guatemala_title = self.driver.find_element(By.TAG_NAME, ('h5'))
             assert find_guatemala_title.text == "Guatemala - Greetings and farewells"
             self.driver.find_element(By.ID, "level_selector").click()
-            sleep(6)
+            sleep(3)
 
 # if no space:
 #sudo docker system prune -a
