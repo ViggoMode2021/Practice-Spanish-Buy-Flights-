@@ -772,11 +772,11 @@ def delete_account_submit():
             cursor.close()
             conn.close()
 
-            flash('You have successfully deleted your account.')
+            flash('You have successfully deleted your account!')
 
             return redirect(url_for('main_page'))
         except:
-            flash('Username incorrect, or user is not in the system.')
+            flash('Username incorrect or user is not in the system.')
             return redirect(url_for('delete_account'))
 
 @application.route('/forgot_password_page', methods=['GET'])
