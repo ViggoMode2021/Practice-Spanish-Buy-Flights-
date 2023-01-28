@@ -9,15 +9,14 @@ FROM base AS python-deps
 
 ### Install pipenv and compilation dependencies
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends gcc
+    && apt-get install -y --no-install-recommends gcc \
+    && pip install -r requirements.txt
 
 # Runtime
 FROM gcr.io/distroless/python3
 
 WORKDIR /application
 COPY . .
-
-RUN pip install -r requirements.txt
 
 EXPOSE 80
 ENTRYPOINT ["python", "application.py"]
