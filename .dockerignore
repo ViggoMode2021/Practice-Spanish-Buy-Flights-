@@ -1,0 +1,10 @@
+.git
+.terraform
+.app_test
+.pytest_cache
+.idea
+.env-pytest_cache
+geckodriver.log
+README.md
+terraform_notes.txt
+.__pycache__/

@@ -1,22 +1,23 @@
-FROM python:3.10-slim AS base
+# Python image base
+FROM python:3.10-slim
 
-# Setup env
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONFAULTHANDLER 1
+# Run commands to update Linux and install necessary dependencies for psycopg2 (PostgreSQL database adapter for Python)
 
-# Dependencies
-FROM base AS python-deps
-
-### Install pipenv and compilation dependencies
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends gcc \
-    && pip install -r python_application/requirements.txt
+    && apt-get -y install libpq-dev gcc \
+    && pip install psycopg2
 
-# Runtime
-FROM gcr.io/distroless/python3
+# Copy to working directory
 
 WORKDIR /application
 COPY . .
 
+# Pip install requirements.txt
+RUN pip install -r requirements.txt
+ENTRYPOINT [ "python" ]
+
+# Expose port 80 for container
 EXPOSE 80
-ENTRYPOINT ["python", "application.py"]
+
+# Run application.py file at startup
+CMD [ "application.py" ]
