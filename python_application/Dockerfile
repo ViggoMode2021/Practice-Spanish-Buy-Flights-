@@ -14,7 +14,8 @@ RUN pip install pipenv \
 
 ### Install python dependencies in /.venv
 COPY Pipfile .
-RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy
+RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy \
+    pipenv lock --pre --clear
 
 # Runtime
 FROM gcr.io/distroless/python3
