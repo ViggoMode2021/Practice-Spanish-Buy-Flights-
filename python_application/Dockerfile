@@ -8,22 +8,17 @@ ENV PYTHONFAULTHANDLER 1
 FROM base AS python-deps
 
 ### Install pipenv and compilation dependencies
-RUN pip install pipenv \
+RUN pip install requirements.txt \
     && apt-get update \
     && apt-get install -y --no-install-recommends gcc
-
-### Install python dependencies in /.venv
-COPY Pipfile .
-RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy \
-    pipenv lock --clear
 
 # Runtime
 FROM gcr.io/distroless/python3
 
-WORKDIR /app
-COPY --from=python-deps /.venv/lib/python3.10/site-packages /app/site-packages
-ENV PYTHONPATH /app/site-packages
+WORKDIR /application
 COPY . .
+
+RUN pip install -r requirements.txt
 
 EXPOSE 80
 ENTRYPOINT ["python", "application.py"]
