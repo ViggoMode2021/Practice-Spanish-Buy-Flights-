@@ -1,25 +1,28 @@
-# Python image base
-FROM python:3.9
+FROM python:3.10-slim AS base
 
-# Run commands to update Linux and install necessary dependencies for psycopg2 (PostgreSQL database adapter for Python)
+# Setup env
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONFAULTHANDLER 1
 
-RUN adduser -D myuser && chown -R myuser /myapp-data \
-    apt-get update \
-    && apt-get -y install libpq-dev gcc \
-    && pip install psycopg2
+# Dependencies
+FROM base AS python-deps
 
-# Copy to working directory
+### Install pipenv and compilation dependencies
+RUN pip install pipenv \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends gcc
 
-WORKDIR /application
+### Install python dependencies in /.venv
+COPY Pipfile .
+RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy
+
+# Runtime
+FROM gcr.io/distroless/python3
+
+WORKDIR /app
+COPY --from=python-deps /.venv/lib/python3.10/site-packages /app/site-packages
+ENV PYTHONPATH /app/site-packages
 COPY . .
 
-# Pip install requirements.txt
-RUN pip install -r requirements.
-USER myuser
-ENTRYPOINT [ "python" ]
-
-# Expose port 80 for container
 EXPOSE 80
-
-# Run application.py file at startup
-CMD [ "application.py" ]
+ENTRYPOINT ["python", "application.py"]
