@@ -8,8 +8,7 @@ ENV PYTHONFAULTHANDLER 1
 FROM base AS python-deps
 
 ### Install pipenv and compilation dependencies
-RUN pip install requirements.txt \
-    && apt-get update \
+RUN && apt-get update \
     && apt-get install -y --no-install-recommends gcc
 
 # Runtime
