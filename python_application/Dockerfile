@@ -1,9 +1,10 @@
 # Python image base
-FROM python:3.8.3-slim
+FROM python:3.9
 
 # Run commands to update Linux and install necessary dependencies for psycopg2 (PostgreSQL database adapter for Python)
 
-RUN apt-get update \
+RUN adduser -D myuser && chown -R myuser /myapp-data \
+    apt-get update \
     && apt-get -y install libpq-dev gcc \
     && pip install psycopg2
 
@@ -13,7 +14,8 @@ WORKDIR /application
 COPY . .
 
 # Pip install requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.
+USER myuser
 ENTRYPOINT [ "python" ]
 
 # Expose port 80 for container
