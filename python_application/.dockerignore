@@ -1,0 +1,9 @@
+__pycache__
+tables.sql
+app.yaml
+dock.txt
+Pipfile
+.github
+.idea
+.pytest_cache
+.app_test

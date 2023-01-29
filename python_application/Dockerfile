@@ -1,19 +1,25 @@
-# Python image base
-FROM python:3.10-slim
+ARG PYTHON_VERSION=3.9-alpine3.8
 
-# Run commands to update Linux and install necessary dependencies for psycopg2 (PostgreSQL database adapter for Python)
-
-RUN apt-get update \
-    && apt-get -y install libpq-dev gcc \
-    && pip install psycopg2
-
-# Copy to working directory
+FROM python:${PYTHON_VERSION}
+ENV PYTHONUNBUFFERED 1
+RUN apk add --no-cache \
+    --upgrade \
+    --repository http://dl-cdn.alpinelinux.org/alpine/edge/main \
+    alpine-sdk \
+    postgresql-dev \
+    postgresql-client \
+    libpq \
+    gettext \
+    && apk add --no-cache \
+    --upgrade \
+    --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing 
 
 WORKDIR /application
-COPY . .
 
-# Pip install requirements.txt
-RUN pip install -r requirements.txt
+COPY . .
+RUN pip install -U pip \
+    && pip install -r requirements.txt
+
 ENTRYPOINT [ "python" ]
 
 # Expose port 80 for container
