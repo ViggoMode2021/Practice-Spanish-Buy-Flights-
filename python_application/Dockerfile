@@ -9,16 +9,24 @@ RUN apk add --no-cache \
     postgresql-dev \
     postgresql-client \
     libpq \
-    gettext \
     && apk add --no-cache \
     --upgrade \
-    --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing 
+    --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+    && pip install --upgrade pip
 
-WORKDIR /application
+RUN adduser -D worker
 
-COPY . .
-RUN pip install -U pip \
-    && pip install -r requirements.txt
+USER worker
+
+WORKDIR /home/worker
+
+COPY --chown=worker:worker requirements.txt requirements.txt
+
+RUN pip install --user -r requirements.txt
+
+ENV PATH="/home/worker/.local/bin:${PATH}"
+
+COPY --chown=worker:worker . .
 
 ENTRYPOINT [ "python" ]
 
