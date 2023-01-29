@@ -86,3 +86,8 @@ output "instance_public_ip" {
   value     = aws_instance.servernode.public_ip
   sensitive = true
 }
+
+output "instance-dns" {
+  value     = "practicespanishbuyflights.com"
+  sensitive = true
+}
