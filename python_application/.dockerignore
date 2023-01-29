@@ -7,4 +7,3 @@ Pipfile
 .idea
 .pytest_cache
 .app_test
-application.py
