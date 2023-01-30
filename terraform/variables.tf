@@ -10,3 +10,4 @@ variable "private_key" {
 variable "key_name" {
   default = "deployer-key"
 }
+#54.196.176.11
