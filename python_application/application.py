@@ -71,7 +71,7 @@ DB_NAME = os.getenv("DB_NAME")
 secret_name_COGNITO_USER_CLIENT_ID = "arn:aws:secretsmanager:us-east-1:583715230104:secret:Cognito_User_Client_ID-ft88TW"
 region_name = "us-east-1"
 
-# Create a Secrets Manager client
+# Create a Secrets Manager client!
 client = boto3.client('secretsmanager', region_name='us-east-1')
 
 get_secret_value_response = client.get_secret_value(
