@@ -7,3 +7,5 @@ Pipfile
 .idea
 .pytest_cache
 .app_test
+app_test.py
+.terraform
