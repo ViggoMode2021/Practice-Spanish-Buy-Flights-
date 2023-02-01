@@ -55,7 +55,7 @@ application.register_blueprint(flight_colombia)
 application.register_blueprint(flight_peru)
 application.register_blueprint(flight_spain)
 
-# Load and assign environment variables below:
+#@ Load and assign environment variables below:
 
 load_dotenv(find_dotenv())
 
