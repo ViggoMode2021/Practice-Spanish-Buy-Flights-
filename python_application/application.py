@@ -1,3 +1,4 @@
+#package imports 
 from flask import Flask, render_template, request, flash, session, redirect, url_for
 import psycopg2
 import psycopg2.extras
