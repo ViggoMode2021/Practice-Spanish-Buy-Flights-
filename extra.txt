@@ -1,0 +1,5 @@
+sudo docker ps -aq | xargs sudo docker stop | xargs sudo docker rm
+rm server-stats.txt
+            df | grep /dev/root > server-stats.txt
+            sudo docker ps -a >> server-stats.txt
+            sudo ssmtp ryansviglione@gmail.com < server-stats.txt
