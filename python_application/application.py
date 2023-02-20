@@ -847,4 +847,4 @@ def main_page():
    return render_template('sign_up.html')
 
 if __name__ == '__main__':
-    application.run(debug=False, host='0.0.0.0', port=80)
+    application.run(debug=True, host='0.0.0.0', port=80)
