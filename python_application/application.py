@@ -69,7 +69,7 @@ AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 
 DB_NAME = os.getenv("DB_NAME")
 
-secret_name_COGNITO_USER_CLIENT_ID = "arn:aws:secretsmanager:us-east-1:583715230104:secret:Cognito_User_Client_ID-ft88TW"
+secret_name_COGNITO_USER_CLIENT_ID = "arn:aws:secretsmanager:us-east-1:APPLICATION-IS-NOT-LIVE-ANYMORE"
 region_name = "us-east-1"
 
 # Create a Secrets Manager client!
@@ -81,7 +81,7 @@ get_secret_value_response = client.get_secret_value(
 
 COGNITO_USER_CLIENT_ID = get_secret_value_response['SecretString']
 
-secret_name_DATABASE_HOST = "arn:aws:secretsmanager:us-east-1:583715230104:secret:DB_ENDPOINT-OgYTNa"
+secret_name_DATABASE_HOST = "arn:aws:secretsmanager:us-east-1:APPLICATION-IS-NOT-LIVE-ANYMORE"
 
 get_secret_value_response_2 = client.get_secret_value(
     SecretId=secret_name_DATABASE_HOST
@@ -89,7 +89,7 @@ get_secret_value_response_2 = client.get_secret_value(
 
 DB_HOST = get_secret_value_response_2['SecretString']
 
-secret_name_DATABASE_PASS = "arn:aws:secretsmanager:us-east-1:583715230104:secret:DB_PASS-hqj9lH"
+secret_name_DATABASE_PASS = "arn:aws:secretsmanager:us-east-1:APPLICATION-IS-NOT-LIVE-ANYMORE"
 
 get_secret_value_response_3 = client.get_secret_value(
     SecretId=secret_name_DATABASE_PASS
@@ -97,7 +97,7 @@ get_secret_value_response_3 = client.get_secret_value(
 
 DB_PASS = get_secret_value_response_3['SecretString']
 
-secret_name_DB_USER = "arn:aws:secretsmanager:us-east-1:583715230104:secret:DB_USER-lyKZpQ"
+secret_name_DB_USER = "arn:aws:secretsmanager:us-east-1:APPLICATION-IS-NOT-LIVE-ANYMORE"
 
 get_secret_value_response_4 = client.get_secret_value(
     SecretId=secret_name_DB_USER
@@ -105,7 +105,7 @@ get_secret_value_response_4 = client.get_secret_value(
 
 DB_USER = get_secret_value_response_4['SecretString']
 
-secret_name_SECRET_KEY = "arn:aws:secretsmanager:us-east-1:583715230104:secret:SECRET_KEY-C502Wx"
+secret_name_SECRET_KEY = "arn:aws:secretsmanager:us-east-1:APPLICATION-IS-NOT-LIVE-ANYMORE"
 
 get_secret_value_response_5 = client.get_secret_value(
     SecretId=secret_name_SECRET_KEY
